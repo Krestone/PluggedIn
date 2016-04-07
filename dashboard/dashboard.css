@@ -1,0 +1,92 @@
+a {
+    color:#ffffff;
+    text-decoration: none;
+}
+
+a:hover {
+    color:#a02;
+}
+
+body {
+    position:static; 
+}
+
+.topmenu {
+    z-index: 1;
+    text-transform: uppercase;
+    font-family: helvetica;
+    font-weight:600;
+    position:fixed;
+    top:0;
+    left:0; 
+    height:15px;
+    padding-top: 10px;
+    padding-bottom:10px; 
+    width:100%;
+    min-width:900px;
+    background-color: #47211e;
+    color:red;
+    text-align: left;
+    padding-left: 10px;
+}
+
+.logout {
+    position:fixed; 
+    float:right;
+    top:10px; 
+    left:-10; 
+    text-align: right; 
+    z-index: -1; 
+    width:100%; 
+    min-width: 515px;  
+}
+
+.updatespace {
+    position:absolute;
+    top:35px; 
+    left:0px;
+    height:250px;
+    width:100%; 
+    background-color: purple; 
+}
+
+textarea{
+    position:absolute;
+    left:2.5%; 
+    right:2.5%; 
+    height:80%;
+    top:18; 
+    bottom:10%; 
+    padding-top:20px; 
+    padding-left:30px; 
+    padding-right:30px; 
+    padding-bottom: 20px; 
+    font-size:20pt; 
+    font-family: helvetica; 
+    font-weight: 100; 
+    background-color:#47211e; 
+    width:95%; 
+    resize:none; 
+}
+
+
+input[type=text] {
+    position:static; 
+    font-size: 20px; 
+    top:15px; 
+    width:75%; 
+    height:200px; 
+    padding-top:6px;
+    background-color: #a02a26; 
+    background-image: url("./plug.png");
+    color:#ffffff;
+    background-size: 15px 15px; 
+    background-repeat: no-repeat;
+    background-position: 6px 6px;
+    padding-left: 30px;
+    padding-bottom: 6px;
+    position:absolute;
+    left:120px;
+    right:120px; 
+    border: none;
+}
