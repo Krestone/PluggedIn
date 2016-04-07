@@ -20,6 +20,7 @@ h1 {
     text-transform: none;
     padding-bottom: 70px;
     padding-left:15px; 
+    color:#ffffff; 
 }
 
 .topmenu {
@@ -60,7 +61,9 @@ h1 {
     width:90%;
     left:5%; 
     right:5%; 
-    background-color:#d6d4d4; 
+    background:none; 
+    border-style: dotted; 
+    border-color: #d6d4d4; 
 }
 
 .updatesubmit {
@@ -84,7 +87,9 @@ h1 {
     width: 90%; 
     left:5%; 
     right:5%; 
-    background-color:#d6d4d4
+    background:none; 
+    border-style: dotted; 
+    border-color:#d6d4d4;
 }
 
 .friendupdate{
