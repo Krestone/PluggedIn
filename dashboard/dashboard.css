@@ -94,6 +94,39 @@ h1 {
 
 .friendupdate{
     position:absolute; 
+    background-color: #ffffff; 
+    height:100px; px;
+    width:90%;
+    left:5%; 
+    right:5%; 
+    bottom:20px; 
+    color:#000000; 
+}
+
+.friendusername{
+    position:absolute; 
+    padding-left: 2.5%; 
+    padding-top:5px; 
+    padding-bottom: 5px; 
+    padding-right: 5%; 
+    font-family: helvetica; 
+    font-weight: 600;
+    width:92.5%; 
+    background-color: #a02a26; 
+    text-transform: uppercase; 
+    color:#ffffff; 
+    
+}
+
+.friendstatus{
+    position:absolute;
+    top:30px; 
+    width:100%; 
+    height:auto; 
+    padding-left: 5%; 
+    padding-top: 5px; 
+    padding-bottom: 5px; 
+    padding-right: 5px; 
     
 }
 
