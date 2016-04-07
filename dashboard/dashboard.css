@@ -9,6 +9,17 @@ a:hover {
 
 body {
     position:static; 
+    background-color: #722726; 
+    font-family: helvetica; 
+
+}
+
+h1 {
+    font-weight: 800;
+    font-size: 300%;
+    text-transform: none;
+    padding-bottom: 70px;
+    padding-left:15px; 
 }
 
 .topmenu {
@@ -43,19 +54,50 @@ body {
 
 .updatespace {
     position:absolute;
-    top:35px; 
+    top:50px; 
     left:0px;
-    height:250px;
-    width:100%; 
-    background-color: purple; 
+    height:400px;
+    width:90%;
+    left:5%; 
+    right:5%; 
+    background-color:#d6d4d4; 
+}
+
+.updatesubmit {
+    position:absolute; 
+    font-family: helvetica; 
+    width=100%; 
+    font-weight: 600; 
+    bottom:5px;
+    height:50px;
+    width:95%; 
+    left:2.5%;
+    right:2.5%; 
+    
+}
+
+.dashspace {
+    position:absolute; 
+    top:500; 
+    left:0px; 
+    height: auto; 
+    width: 90%; 
+    left:5%; 
+    right:5%; 
+    background-color:#d6d4d4
+}
+
+.friendupdate{
+    position:absolute; 
+    
 }
 
 textarea{
     position:absolute;
     left:2.5%; 
     right:2.5%; 
-    height:80%;
-    top:18; 
+    height:60%;
+    top:100; 
     bottom:10%; 
     padding-top:20px; 
     padding-left:30px; 
@@ -64,29 +106,26 @@ textarea{
     font-size:20pt; 
     font-family: helvetica; 
     font-weight: 100; 
-    background-color:#47211e; 
+    background-color:#ffffff;
+    color:#47211e; 
     width:95%; 
     resize:none; 
 }
 
-
-input[type=text] {
-    position:static; 
-    font-size: 20px; 
-    top:15px; 
-    width:75%; 
-    height:200px; 
-    padding-top:6px;
-    background-color: #a02a26; 
-    background-image: url("./plug.png");
-    color:#ffffff;
-    background-size: 15px 15px; 
+input[type=image] {
+    background-image:url(plug.png);
+    height:50px; 
+    width:50px; 
+    border:none; 
+    position:absolute; 
+    right:20px; 
     background-repeat: no-repeat;
-    background-position: 6px 6px;
-    padding-left: 30px;
-    padding-bottom: 6px;
-    position:absolute;
-    left:120px;
-    right:120px; 
-    border: none;
+    background-position: 50% 50%;
+    background-size:40px 40px 
 }
+
+input[type=image]:hover {
+    background-image: url(plughover.png);
+}
+
+

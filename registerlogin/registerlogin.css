@@ -41,7 +41,7 @@ ol {
     position:fixed;
     top:0;
     left:0; 
-    height:20px;;
+    height:15px;
     padding-top: 10px;
     padding-bottom:10px; 
     width:100%;
@@ -101,28 +101,6 @@ input[type=text] {
     border: none;
 }
 
-input[type=submit] {
-    background-color:#47211e;
-    font-family: helvetica;
-    font-size: 12px;
-    font-weight: 100;
-    position:absolute;
-    left: 20px;;
-    color: #ffffff;
-    border-radius: 10px;
-    border:none;
-    margin-top:10px;
-    padding-left: 10px;
-    padding-right: 10px;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    
-}
-
-input[type=submit]:hover {
-    background-color:#a02a26;
-}
-
 .logregbox {
     position:relative; 
     margin-left:auto;
@@ -133,3 +111,17 @@ input[type=submit]:hover {
     height: 400px;
 }
 
+input[type=image] {
+    background-image:url(plug.png);
+    height:50px; 
+    width:50px; 
+    position:absolute; 
+    left:290px; 
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-size:25px 25px; 
+}
+
+input[type=image]:hover {
+    background-image: url(plughover.png);
+}
