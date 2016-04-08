@@ -65,7 +65,7 @@ ol {
     height:100%;
     float:left;
     padding-left:10px;
-    padding-right:30px;
+    padding-right:50px;
 }
 
 .register{
@@ -82,6 +82,15 @@ ol {
     float:left;
     padding-left:10px;
     padding-right:10px;
+}
+
+.whatyouneed{
+    margin-left:-290px; 
+    width: 350px;
+    text-align: left; 
+    margin-top: 125px; 
+    color: #ffffff; 
+    font-size: 140%; 
 }
 
 input[type=text] {
@@ -105,23 +114,29 @@ input[type=text] {
     position:relative; 
     margin-left:auto;
     margin-right:auto;
-    width:750px;
+    width:800px;
     margin-top: 150px;
     margin-bottom: auto;
     height: 400px;
 }
 
-input[type=image] {
+button[type=submit]{
     background-image:url(plug.png);
-    height:50px; 
-    width:50px; 
+    background-color: transparent; 
+    height:40px; 
+    width:40px; 
+    border:none; 
+    border-style: none; 
+    outline: none; 
     position:absolute; 
+    padding:none; 
     left:290px; 
     background-repeat: no-repeat;
+    border-style: none; 
     background-position: 50% 50%;
     background-size:25px 25px; 
 }
 
-input[type=image]:hover {
+button[type=submit]:hover {
     background-image: url(plughover.png);
 }
