@@ -17,7 +17,7 @@ int parser( char *s )
 	if(s == '\0') {
 		printf("X_ERR='Null phrase'\n");
                 i++; 
-		return 1;
+		return 0;
 	}
 	vname = s;//i we ll need the vname later on we can get it form here
 	while( (*s != '\0')  && (*s != '=')) s++;
@@ -25,7 +25,7 @@ int parser( char *s )
         {
 		printf("X_ERR='Null assignment'\n");
                 i++;
-		return 1;
+		return 0;
 	}
 	*(s++) = '\0';
        	//now the pointer points to the beggining of the username/password
@@ -35,7 +35,7 @@ int parser( char *s )
         *(s++) = '\0';
         entries[i]=val;
         i++;
-        return 0;
+        return 1;
         
         
 }
@@ -60,62 +60,109 @@ int main(void)
   token = strtok(buffer,"&");
   while(i<2) 
   {
-    loginStatus=parser(token);
+    parser(token);
     token= strtok(NULL,"&");
   }
   
 
-  //if user name,pasword is missing OR invalid username/pass
+  
+
+  //validate password
+  FILE *validate= fopen("users.txt", "rt"); //file pointer to database
+  
+  if(validate == NULL) //give Error if problem reading database
+  {
+    printf("%s%c%c\n","Content-Type:text/html",13,10);
+    printf("<html>");
+    printf("<head><title>ERROR 01001</title></head>");
+    printf("<body><p>DATABASE NOT FOUND</p></body>");
+
+    return 1;
+
+ }
+ 
+  char field[50];
+  fgets( field, 50, validate);
+  field[strlen(field) - 1] = '\0'; //removes newline
+
+  while(!feof(validate) ) 
+  {
+    if(strcmp(entries[0], field) == 0)//if user name is valid
+    {
+      fgets( field, 50, validate);
+      field[strlen(field) - 1] = '\0';
+      if( strcmp(entries[1], field) == 0)//if password is valid
+      {
+        loginStatus=1; //login is valid now
+        break;
+      }
+      else
+      {
+      break;
+      }
+    }
+    //skip 4 lines to next user name
+    int c1=0;
+    for(c1; c1<4; c1++)
+    {  
+      fgets( field, 50, validate);
+      field[strlen(field) - 1] = '\0'; 
+    }
+  }
+    
+
+  fclose(validate); //validation done
+
+
+
+
+
+
+  FILE *in=fopen("index.html", "rt"); //File pointer to the dashboard
+
+
+ 
+  //publish dashboard to STDOUT character by character if valid login
   if(loginStatus)
   {
+    //check if dashboard available
+    if(in == NULL) //give 404 Error if dashboard is missing
+   {
+    printf("%s%c%c\n","Content-Type:text/html",13,10);
+    printf("<html>");
 
+    printf("<head><title>ERROR</title></head>");
+    printf("<body><p>Error 404 Dashboard Not Found</p></body>");
+    printf("<P>Username is %s", entries[0]);
+    printf("<P>Password is %s", entries[1]);
+    return 1;
+
+   }
+ 
+    //proceed to printing dashboard
+    printf("%s%c%c\n","Content-Type:text/html",13,10);
+ 
+    int c;
+    c=fgetc(in);
+    while(!feof(in) )
+    {
+     fputc(c, stdout);
+     c=fgetc(in);
+    }
+    fclose(in);
+    return 0; 
+  }
+   
+   //if failure  
    printf("%s%c%c\n","Content-Type:text/html",13,10);
    printf("<html>");
 
-   printf("<head><title>ERROR</title></head>");
-   printf("<body><p>Error Invalid Password</p></body>");
+   printf("<head><title>ERROR INVALID LOGIN!!!!!!! SHAM, QI DONT BE LAZY CREATE ACCOUNTS</title></head>");
+   printf("<body><p>ERROR INVALID LOGIN!!!!!!! SHAM, QI DONT BE LAZY CREATE ACCOUNTS</p></body>");
    printf("<P>HERE PUT LINK 1 TO HOME PAGE");
    printf("<P>HERE PUT LINK 2 BACK TO LOGIN PAGE");
    return 1;
 
 
-  }
-
-
-
-  FILE *in=fopen("indexxx.html", "rt"); //File pointer to the dashboard
-
-  if(in == NULL) //give 404 Error if dashboard is missing
-  {
-  printf("%s%c%c\n","Content-Type:text/html",13,10);
-  printf("<html>");
-
-  printf("<head><title>ERROR</title></head>");
-  printf("<body><p>Error 404 Dashboard Not Found</p></body>");
-  printf("<P>Username is %s", entries[0]);
-  printf("<P>Password is %s", entries[1]);
-  return 1;
-
- } 
-
- 
-
-
- 
-
- //publish dashboard to STDOUT character by character
-
- printf("%s%c%c\n","Content-Type:text/html",13,10);
- 
- int c;
- c=fgetc(in);
- while(!feof(in) )
- {
-   fputc(c, stdout);
-   c=fgetc(in);
- }
- fclose(in);
-
-
- return 0;
+   
 }

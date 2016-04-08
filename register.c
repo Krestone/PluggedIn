@@ -59,6 +59,19 @@ int main(void)
     token= strtok(NULL,"&");
   }
 
+  //Do no allow empty boxes
+  int c2=0;
+  for(c2; c2<4; c2++)
+  {
+    if(entries[c2] == NULL || *entries[c2] == '\0' )
+    {
+       unique=0;
+       break;
+    } 
+
+  }
+
+
   FILE *out=fopen("users.txt", "a+");
   
   //check if unique
@@ -119,7 +132,7 @@ int main(void)
     printf("%s%c%c\n","Content-Type:text/html",13,10);
     printf("<html>");
     printf("<head><title>ERROR</title></head>");
-    printf("<P>ERROR 666 REGISTER NOT SUCESSFULL put 2 links here");
+    printf("<P>ERROR 666 EITHER YOUR USERNAME IS TAKEN OR YOU LEFT A LINE EMPTY. DONT DO THAT (also put 2 links here) ");
     printf("<P>Either missing field or non unique login credentials");
     printf("<P>Password is %s", entries[0]);
     printf("<P>Password is %s", entries[1]);
