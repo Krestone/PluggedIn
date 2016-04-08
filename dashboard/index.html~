@@ -1,0 +1,41 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="../dashboard.css">
+    <title>PluggedIn - dashboard</title>
+</head>
+    
+<body>
+    <div class="topmenu">
+        <a href="dashboard">Dashboard</a> &emsp;&emsp;&emsp;&emsp;
+        <a href="makefriend">Make a friend</a> &emsp;&emsp;&emsp;&emsp;
+        <a href="seefriend">See a friend</a>  &emsp;&emsp;&emsp;&emsp; 
+        <div class="logout">
+        <a href="http://www.cs.mcgill.ca/~ycukra/PluggedIn/home/">Logout</a></div>
+    </div>
+    <div class="updatespace">
+        <h1>Update.</h1>
+
+        <form name="statusupdate"> <!--action="" method=""-->
+            <textarea name="update"  placeholder="What's hogging your processors today?"> </textarea>
+        </form>
+        
+        <div class="updatesubmit">          
+            <input type="image" form="statusupdate" value=" "> 
+        </div>
+    </div>
+    
+    <div class="dashspace">
+    <h1>UpToDate.</h1>
+        <div class="friendupdate">
+            <div class="friendusername"></div>
+            <div class="friendstatus"></div>            
+        </div>
+        <div class="friendupdate">
+            <div class="friendusername">user </div>
+            <div class="friendstatus">status</div>          
+        </div>
+    
+    </div>
+</body>
+</html>
