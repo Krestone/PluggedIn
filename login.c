@@ -76,7 +76,7 @@ int main(void)
     printf("<html>");
     printf("<head><title>ERROR 01001</title></head>");
     printf("<body><p>DATABASE NOT FOUND</p></body>");
-
+    fclose(validate); //validation done
     return 1;
 
  }
