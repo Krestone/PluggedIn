@@ -23,6 +23,16 @@ h1 {
     color:#ffffff; 
 }
 
+h2 {
+    font-weight:700; 
+    color:#ffffff; 
+    font-size: 250%; 
+    position:absolute;  
+    height:auto; 
+    right:60px; 
+    top:-17px; 
+}
+
 .topmenu {
     z-index: 1;
     text-transform: uppercase;
@@ -66,18 +76,6 @@ h1 {
     border-color: #d6d4d4; 
 }
 
-.updatesubmit {
-    position:absolute; 
-    font-family: helvetica; 
-    width=100%; 
-    font-weight: 600; 
-    bottom:5px;
-    height:50px;
-    width:95%; 
-    left:2.5%;
-    right:2.5%; 
-    
-}
 
 .dashspace {
     position:absolute; 
@@ -90,12 +88,18 @@ h1 {
     background:none; 
     border-style: dotted; 
     border-color:#d6d4d4;
+    margin-bottom:40px; 
+}
+
+.dashhead {
+    height:70px; 
+    width:100%; 
 }
 
 .friendupdate{
-    position:absolute; 
-    background-color: #ffffff; 
-    height:100px; px;
+    float:left;  
+    background: none;  
+    height:auto;
     width:90%;
     left:5%; 
     right:5%; 
@@ -104,29 +108,38 @@ h1 {
 }
 
 .friendusername{
-    position:absolute; 
     padding-left: 2.5%; 
-    padding-top:5px; 
+    position:absolute; 
+    padding-top:7px; 
     padding-bottom: 5px; 
     padding-right: 5%; 
     font-family: helvetica; 
     font-weight: 600;
-    width:92.5%; 
-    background-color: #a02a26; 
+    width:auto; 
+    left:5%; 
+    right:5%; 
+    background: none; 
+    border-style: dotted; 
+    border-width: 1px; 
     text-transform: uppercase; 
     color:#ffffff; 
     
 }
 
 .friendstatus{
-    position:absolute;
-    top:30px; 
-    width:100%; 
+    width:auto; 
+    margin-left:7%; 
     height:auto; 
-    padding-left: 5%; 
-    padding-top: 5px; 
-    padding-bottom: 5px; 
-    padding-right: 5px; 
+    padding-top: 55px; 
+    padding-bottom: 25px; 
+    padding-right: 10%; 
+    color:#ffffff;
+    font-family: helvetica; 
+    font-weight: lighter; 
+    font-size:11pt; 
+    line-height: 13pt;
+    text-align: justify; 
+    overflow:auto; 
     
 }
 
@@ -135,7 +148,7 @@ textarea{
     left:2.5%; 
     right:2.5%; 
     height:60%;
-    top:100; 
+    top:100px; 
     bottom:10%; 
     padding-top:20px; 
     padding-left:30px; 
@@ -150,20 +163,24 @@ textarea{
     resize:none; 
 }
 
-input[type=image] {
+button[type=submit]{
     background-image:url(plug.png);
+    background-color: transparent; 
     height:50px; 
     width:50px; 
     border:none; 
+    border-style: none; 
+    outline: none; 
     position:absolute; 
-    right:20px; 
+    right:2.5%; 
+    top:345px; 
     background-repeat: no-repeat;
+    border-style: none; 
     background-position: 50% 50%;
-    background-size:40px 40px 
+    background-size:40px 40px; 
 }
 
-input[type=image]:hover {
+button[type=submit]:hover {
     background-image: url(plughover.png);
 }
-
 
