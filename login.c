@@ -125,34 +125,10 @@ int main(void)
   //publish dashboard to STDOUT character by character if valid login
   if(loginStatus)
   {
-    //check if dashboard available
-    if(in == NULL) //give 404 Error if dashboard is missing
-   {
-    printf("%s%c%c\n","Content-Type:text/html",13,10);
-    printf("<html>");
-
-    printf("<head><title>ERROR</title></head>");
-    printf("<body><p>Error 404 Dashboard Not Found</p></body>");
-    printf("<P>Username is %s", entries[0]);
-    printf("<P>Password is %s", entries[1]);
-    return 1;
-
-   }
- 
-    //proceed to printing dashboard
-    printf("%s%c%c\n","Content-Type:text/html",13,10);
- 
-    int c;
-    c=fgetc(in);
-    while(!feof(in) )
-    {
-     fputc(c, stdout);
-     c=fgetc(in);
-    }
-    fclose(in);
-    return 0; 
+     system("./systtest.cgi"); //name of the python script to be called here    
   }
-   
+  else
+  {  
    //if failure  
    printf("%s%c%c\n","Content-Type:text/html",13,10);
    printf("<html>");
@@ -162,7 +138,7 @@ int main(void)
    printf("<P>HERE PUT LINK 1 TO HOME PAGE");
    printf("<P>HERE PUT LINK 2 BACK TO LOGIN PAGE");
    return 1;
-
+  }
 
    
 }

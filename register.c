@@ -13,7 +13,7 @@ int parser( char *s )
 {
         char *vname;
         char *val;
-
+        char buf[3]; 
         //this part  gets rid of the CGI vatiabble name tag
         if(s == '\0') {
                 printf("X_ERR='Null phrase'\n");
@@ -32,8 +32,30 @@ int parser( char *s )
         //now the pointer points to the beggining of the username/password
 
         val =s;
-        while( (*s != '\0')  && (*s != '=')) s++;
-        *(s++) = '\0';
+        while( (*s != '\0')  && (*s != '='))
+        {
+ 	   s++;//next character 
+	   switch( *s ) //fix URL encoding abnormalities
+           {
+			case '%':
+				buf[0]=*(++s); buf[1]=*(++s); 
+				buf[2]='\0';
+				sscanf(buf,"%2x",s);
+				break;
+			case '+':
+				*s = ' ';
+				break;
+           }
+          
+        }
+
+
+         *(s++) = '\0';
+        
+ 
+
+
+
         entries[i]=val;
         i++;
         return 0;
