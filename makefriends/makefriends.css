@@ -32,7 +32,7 @@ h3 {
     color:#ffffff; 
     font-family: helvetica; 
     font-weight:100;
-    font-size: 20px; 
+    font-size: 18px; 
     text-align: right; 
     line-height: 30px; 
 }
@@ -76,28 +76,35 @@ h3 {
 }
 
 .content {
-    position:absolute; 
-    top:50px; 
+    position:fixed; 
+    top:50px;
     border-style: dotted; 
     border-color: #d6d4d4; 
     width:90%; 
-    height:auto; 
+    height:85%; 
     left:5%; 
     right:5%; 
+    min-width: 90%; 
+    min-height: 500px; 
 }
 
 .userlist {
     position:absolute; 
-    top:150px; 
     width:80%;
     left:10%; 
     right:10%; 
+    height:70%; 
+    bottom:10%; 
+    top:20%; 
+    overflow:scroll;
+    min-height: 200px;
 }
 
 .username{
     float:left;
     width:20%; 
     overflow: scroll; 
+    white-space: nowrap; 
     height:90px;
     max-height: 80px; 
     padding-top: 10px; 
@@ -123,6 +130,32 @@ h3 {
     padding-top:20px; 
 }
 
+.submit{
+    position: absolute;
+}
+
+button[type=submit]{
+    background-image:url(plug.png);
+    background-color: transparent; 
+    height:70px; 
+    width:70px; 
+    border:none; 
+    border-style: none; 
+    outline: none; 
+    position:fixed; 
+    top:0px; 
+    right:0px; 
+    margin-top:80px; 
+    margin-right: 80px; 
+    background-repeat: no-repeat;
+    border-style: none; 
+    background-position: 50% 50%;
+    background-size:60px 60px; 
+}
+
+button[type=submit]:hover {
+    background-image: url(plughover.png);
+}
 
 
 

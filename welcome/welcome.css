@@ -2,6 +2,8 @@ body {
     background-color: #722726;
     font-family: helvetica; 
     position:static; 
+    height:80%; 
+    overflow:scroll;
 }
 
 h1 {

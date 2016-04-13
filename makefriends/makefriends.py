@@ -63,10 +63,14 @@ while currentuser!="":
 USERS.close() # close the file 
 
 # finish HTML code 
-html_code += """
-		</div> 
+html_code += """	
+				<div class="submit"> 
+					<button type="submit" form="checkusers" value=" "/> 
+				</div>
+			</form>
+		</div>
 	</div>
-</body
+</body>
 
 </html> """
 
