@@ -1,0 +1,84 @@
+body {
+    background-color: #722726;
+    font-family: helvetica; 
+    position:static;
+}
+
+a {
+    color:#ffffff;
+    text-decoration: none;
+}
+
+a:hover {
+    color:#a02;
+}
+
+h1 {
+    font-weight: 800;
+    font-size: 300%;
+    text-transform: none;
+    color:#ffffff; 
+}
+
+.topmenu {
+    z-index: 1;
+    text-transform: uppercase;
+    font-family: helvetica;
+    font-weight:600;
+    position:fixed;
+    top:0;
+    left:0; 
+    height:auto;
+    padding-top: 10px;
+    padding-bottom:10px; 
+    width:100%;
+    min-width:900px;
+    background-color: #47211e;
+    color:red;
+    text-align: left;
+    padding-left: 10px;
+}
+
+.logout {
+    position:fixed; 
+    float:right;
+    top:10px; 
+    left:-10; 
+    text-align: right; 
+    z-index: -1; 
+    width:100%; 
+    min-width: 515px;  
+}
+
+.header {
+    position: relative;
+    left:20px; 
+    top:20px;
+    width:auto; 
+    height:8auto0px;
+}
+
+.content {
+    position:absolute; 
+    top:50px; 
+    border-style: dotted; 
+    border-color: #d6d4d4; 
+    width:90%; 
+    height:auto; 
+    left:5%; 
+    right:5%; 
+}
+
+input[type="checkbox"] {
+    display:none; 
+}
+
+.checkbox label:before {
+    border-radius: 5px; 
+}
+
+input[type=checkbox]:checked + label:before {
+    content:" "; 
+    background-image: url(lightning.png);
+    
+}
