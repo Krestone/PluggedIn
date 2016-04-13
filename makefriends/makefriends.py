@@ -49,7 +49,7 @@ while currentuser!="":
 		<div class="check"><input type="checkbox" name="makefriend" value="%s"></div>
 		""" % currentuser) 
 	html_code += ("""
-		<div class="username"><h3>%s</h3></div> 
+		<div class="username"><h2>%s</h2></div> 
 		""" % currentuser)
 	# append full name 
 	html_code += ("""<div class="fullname"><h3>%s</h3></div>

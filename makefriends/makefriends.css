@@ -20,6 +20,23 @@ h1 {
     color:#ffffff; 
 }
 
+h2 {
+    color:#ffffff; 
+    font-family: helvetica; 
+    font-weight: 400;
+    font-size: 16px; 
+    text-transform: uppercase; 
+}
+
+h3 {
+    color:#ffffff; 
+    font-family: helvetica; 
+    font-weight:100;
+    font-size: 20px; 
+    text-align: right; 
+    line-height: 30px; 
+}
+
 .topmenu {
     z-index: 1;
     text-transform: uppercase;
@@ -55,7 +72,7 @@ h1 {
     left:20px; 
     top:20px;
     width:auto; 
-    height:8auto0px;
+    height:auto;
 }
 
 .content {
@@ -69,16 +86,43 @@ h1 {
     right:5%; 
 }
 
-input[type="checkbox"] {
-    display:none; 
+.userlist {
+    position:absolute; 
+    top:150px; 
+    width:80%;
+    left:10%; 
+    right:10%; 
 }
 
-.checkbox label:before {
-    border-radius: 5px; 
+.username{
+    float:left;
+    width:20%; 
+    overflow: scroll; 
+    height:90px;
+    max-height: 80px; 
+    padding-top: 10px; 
 }
 
-input[type=checkbox]:checked + label:before {
-    content:" "; 
-    background-image: url(lightning.png);
-    
+.fullname{
+    float:left;
+    width:65%; 
+    overflow: scroll; 
+    height:80px; 
+    max-height: 80px; 
+    padding-right: 2%;
+    padding-bottom: 10px; 
+    white-space: nowrap; 
 }
+
+.check{
+    float:left; 
+    height:20px; 
+    width:4%; 
+    padding-left:4%; 
+    padding-right:4%; 
+    padding-top:20px; 
+}
+
+
+
+
