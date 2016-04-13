@@ -5,12 +5,8 @@
 try: 
 	USERS=open("users.txt", "r")
 
-except IOError: 
+except IOerror: 
 	print "Error opening user database!"
-
-else: 
-	pass
-
 
 # now initialize the html code 
 html_code=""" 
@@ -70,13 +66,6 @@ html_code += """
 
 </html>"""
 
-try: 
-	INDEX=open("index.html", "w")
-except IOError:
-	print "Error writing to HTML doc!"
-else: 
-	pass
-
-INDEX.write(html_code)
-
-INDEX.close()
+INDEX=open("index.html", "w")
+except IOerror:
+	print "Error writing to HTML doc!"	
