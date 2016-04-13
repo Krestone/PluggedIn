@@ -5,8 +5,12 @@
 try: 
 	USERS=open("users.txt", "r")
 
-except IOerror: 
-	print "Error opening user database!"
+except IOError: 
+	print "Error opening user database! WHERE DID U PUT THE FILE"
+
+else: 
+	pass
+
 
 # now initialize the html code 
 html_code=""" 
@@ -62,10 +66,16 @@ USERS.close() # close the file
 html_code += """
 		</div> 
 	</div>
-</body>
+</body
 
-</html>"""
+</html> """
 
-INDEX=open("index.html", "w")
-except IOerror:
-	print "Error writing to HTML doc!"	
+try: 
+	INDEX=open("index.html", "w")
+except IOError: 
+	print "Error writing to HTML file because I am stupid!!!!!!!"
+else: 
+	pass
+
+INDEX.write(html_code)
+INDEX.close()
