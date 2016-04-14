@@ -165,7 +165,7 @@ textarea{
 }
 
 button[type=submit]{
-    background-image:url(cgi-bin/plug.png);
+    background-image:url(http://cs.mcgill.ca/~ycukra/cgi-bin/plug.png);
     background-color: transparent; 
     height:50px; 
     width:50px; 
@@ -182,6 +182,6 @@ button[type=submit]{
 }
 
 button[type=submit]:hover {
-    background-image: url(cgi-bin/plughover.png);
+    background-image: url(http://cs.mcgill.ca/~ycukra/cgi-bin/plughover.png);
 }
 
