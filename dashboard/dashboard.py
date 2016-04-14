@@ -77,13 +77,10 @@ def update( status_list, i ):
 if __name__ == "__main__":
 	try:
 		#open the html files
-	    html = open("index.html","w")
+	    html = open("index.html","a")
 
 	except:
 		cgi.print_exception()
-
-	#append html code to index.html 
-	html.write(htmlUpdate)
 
 	#open the status.txt
 	with open("status.txt") as f:
@@ -94,10 +91,10 @@ if __name__ == "__main__":
 			num = 20
 		elif len(status_list) < 20:
 			num = len(status_list)
-		i=0
-		while (i < num):
+		i=num
+		while (i != 0):
 			update(status_list, i)
-			i=i+1      		
+			i=i-1      		
 	#if there's no recent status, then just show default status
 	else:
 		html.write(htmlDefaultStatus)

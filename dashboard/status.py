@@ -4,8 +4,6 @@ import cgi
 import sys
 
 
-
-
 #test = raw_input("status:")
 #create a file to store the status input
 temp_file = open("temp_file.txt", "w")
@@ -16,7 +14,7 @@ form = cgi.FieldStorage()
 usrname= form.getvalue("username")
 statusupdate=form.getvalue("update")
 
-print "Content-type:text/html\r\n\r\n"
+'''print "Content-type:text/html\r\n\r\n"
 print "<html>"
 print "<head>"
 print "<title>Hello</title>"
@@ -25,12 +23,12 @@ print "<body>"
 print "<h2> %s </h2>" % statusupdate
 print "<h2> %s </h2>" % usrname
 print "</body>"
-print "</html>"
+print "</html>"'''
 
 
 #write input to the txt file
 #temp_file.write(test)
-temp_file.write(form.getvalue('update'))
+temp_file.write(statusupdate)
 
 #close file
 temp_file.close()
