@@ -25,7 +25,7 @@ with open("temp_file.txt") as f:
 
 #if input is not empty, store status 
 if temp:
-	statusline = usrname + " " + temp[0] + "\n"
+	statusline = "\n" + usrname + " " + temp[0] 
 	status_file = open("status.txt", "a")
 	status_file.write(statusline)
 	status_file.close()

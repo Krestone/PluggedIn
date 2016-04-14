@@ -20,58 +20,47 @@ htmlTop = """Content-type:text/html\n\n
         				<a href="seefriend">See a friend</a>  &emsp;&emsp;&emsp;&emsp; 
         				<div class="logout">
        					<a href="http://www.cs.mcgill.ca/~ycukra/PluggedIn/home/">Logout</a></div>
-    				</div>"""
+    				</div> \n"""
 
-htmlTail = """</body>
-		</html>"""
+htmlTail = """		</div>
+		</body>
+	</html>"""
 
 #form to fill out when update the status
 htmlForm = """<div class="updatespace">
         		<h1>Update.</h1>
-        		<form name="statusupdate" action="cgi_bin/status.py usrname">
+        		<form name="statusupdate" action="./status.py usrname">
             		<textarea name="update"  placeholder="What's hogging your processors today?"> </textarea>
         			<button type="submit" value=" "/> 
         			<h2>COMMIT</h2>
     			</form>
-       		</div>"""
+       		</div> \n"""
 
 htmlUpdate = """<div class="dashspace">
         <div class="dashhead">
             <h1>UpToDate.</h1>
-        </div>
-    
-        <div class="friendupdate">
-            <div class="friendusername">sham</div>
-            <div class="friendstatus">Hey guys it's Sham here just testing out this dashboard lol!!!!!!!! </div>            
-        </div>
-        
-        <div class="friendupdate">
-            <div class="friendusername">justin bieber</div>
-            <div class="friendstatus">IS IT 2L8 NOW 2 SAY SORRRRRRYYYYYYYYY </div>       
-        </div>
-        
-         <div class="friendupdate">
-            <div class="friendusername">justin trudeau</div>
-            <div class="friendstatus">obama told me I'm a total OG and I was like 'ain't it truuuuuu-doe (get it? because my last name is trudeau.) </div>       
-        </div>
-        
-         <div class="friendupdate">
-            <div class="friendusername">joseph vybihal</div>
-            <div class="friendstatus">stuff lol</div>       
-        </div>
-        
-         <div class="friendupdate">
-            <div class="friendusername">PRINCE OF NIGERIA</div>
-            <div class="friendstatus">PLEASE DEPOSIT $200 INTO MY OVERSEAS BANKING ACCOUNT. I WILL BE VERY GRATEFUL.</div>       
-        </div>
-        
-         <div class="friendupdate">
-            <div class="friendusername">sham</div>
-            <div class="friendstatus">yo I hate my life rn hahahahahahhaaa</div>       
-        </div>
-    </div> """
+        </div> \n"""
 
-       		
+htmlDefaultStatus = """<div class="friendupdate">
+            <div class="friendusername">SYSTEM</div>
+            <div class="friendstatus">No recent status from your friends. OMG your friends are so quiet. GO AND MAKE NEW FRIENDS!!!</div>            
+        </div> \n"""
+        
+def update( status_list, i ):
+	temp = status_list[i]
+	html.write("""<div class="friendupdate">
+		<div class="friendusername">""")
+	#split the first word, i.e. username, from status, and store it to splited
+	splited = temp.split(None, 1)
+    #username: first index of splited
+	html.write(splited[0])
+	html.write("""</div> <div class="friendstatus">""")
+    #status: second part of splited = status
+	html.write(splited[1])
+	html.write("""</div>
+		</div> \n""")
+
+#main program       		
 if __name__ == "__main__":
 	try:
 		#open the html files
@@ -80,13 +69,33 @@ if __name__ == "__main__":
 	except:
 		cgi.print_exception()
 
-#append html code to index.html 
-html.write(htmlTop)
-html.write(htmlForm)
-html.write(htmlUpdate)
-html.write(htmlTail)
-#close the file
-html.close()	
+	#append html code to index.html 
+	html.write(htmlTop)
+	html.write(htmlForm)
+	html.write(htmlUpdate)
+
+	#open the status.txt
+	with open("status.txt") as f:
+		status_list = f.readlines()
+
+	if len(status_list) != 0:
+		if len(status_list) >= 20:
+			num = 20
+		elif len(status_list) < 20:
+			num = len(status_list)
+		i=0
+		while (i < num):
+			update(status_list, i)
+			i=i+1      		
+	#if there's no recent status, then just show default status
+	else:
+		html.write(htmlDefaultStatus)
+		
+	#append the last part of html code	
+	html.write(htmlTail)
+	#close the file
+	f.close()
+	html.close()	
 
 	
 	
