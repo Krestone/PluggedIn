@@ -9,7 +9,7 @@ usrname = sys.argv[1]
 htmlTop = """Content-type:text/html\n\n
 			<html>
 				<head>
-    				<link rel="stylesheet" href="./dashboard.css">
+    				<link rel="stylesheet" href="../dashboard.css">
     				<title>PluggedIn - dashboard</title>
 				</head>
     
