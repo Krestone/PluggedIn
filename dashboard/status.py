@@ -14,7 +14,7 @@ form = cgi.FieldStorage()
 usrname= form.getvalue("username")
 statusupdate=form.getvalue("update")
 
-print "Content-type:text/html\r\n\r\n"
+'''print "Content-type:text/html\r\n\r\n"
 print "<html>"
 print "<head>"
 print "<title>Hello</title>"
@@ -23,7 +23,7 @@ print "<body>"
 print "<h2> %s </h2>" % statusupdate
 print "<h2> %s </h2>" % usrname
 print "</body>"
-print "</html>"
+print "</html>"'''
 
 
 #write input to the txt file
