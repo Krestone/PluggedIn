@@ -1,9 +1,9 @@
-#!/usr/bin/env/python 
+#!/usr/bin/python 
 
-# multiline comment with the html code for the page 
+import urllib2 
 
 try: 
-	USERS=open("users.txt", "r")
+	USERS = urllib2.urlopen("http://www.cs.mcgill.ca/~ycukra/cgi-bin/users.txt")
 
 except IOError: 
 	print "Error opening user database! WHERE DID U PUT THE FILE"
@@ -23,17 +23,17 @@ html_code="""
 <body> 
 
     <div class="topmenu">
-        <a href="http://www.cs.mcgill.ca/~ycukra/cgi-bin/index.html">Dashboard</a> &emsp;&emsp;&emsp;&emsp;
-        <a href="makefriend">Make a friend</a> &emsp;&emsp;&emsp;&emsp;
-        <a href="seefriend">See a friend</a>  &emsp;&emsp;&emsp;&emsp; 
-        <div class="logout">
-        <a href="http://www.cs.mcgill.ca/~ycukra/PluggedIn/home/">Logout</a></div>
-    </div>
+		<a href=javascript:launchDash()>Dashboard</a> &emsp;&emsp;&emsp;&emsp;
+		<a href="javascript:launchMake()">Make a friend</a> &emsp;&emsp;&emsp;&emsp;
+		<a href="javascript:launchSee()">See a friend</a>  &emsp;&emsp;&emsp;&emsp; 
+		<div class="logout">
+			<a href="http://www.cs.mcgill.ca/~ycukra/PluggedIn/home/">Logout</a></div>
+    </div> 
 
     <div class="content">
     	<div class="header"><h1>Connect.</h1> </div>
     	<div class="userlist">
-    		<form name="checkusers" method="post"> <!-- action, method--> 
+    		<form name="checkusers" action="http://www.cs.mcgi" method="post"> <!-- action, method--> 
 """
 
 currentuser=USERS.readline() # get username 
@@ -70,6 +70,22 @@ html_code += """
 			</form>
 		</div>
 	</div>
+
+
+<script>
+	function launchDash(){
+		alert("FUCK");
+	}
+
+
+	function launchMake(){
+
+	}
+
+	function launchSee() {
+
+	}
+</script>	
 </body>
 
 </html> """
