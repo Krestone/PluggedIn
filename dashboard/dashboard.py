@@ -22,14 +22,24 @@ htmlTop = """Content-type:text/html\n\n
     
 				<body>
     				<div class="topmenu">
-        				<a href="dashboard">""" + sys.argv[1] + """'s Dashboard</a> &emsp;&emsp;&emsp;&emsp;
-        				<a href="makefriend">Make a friend</a> &emsp;&emsp;&emsp;&emsp;
-        				<a href="seefriend">See a friend</a>  &emsp;&emsp;&emsp;&emsp; 
+        				<a href="javascript:dash()">""" + sys.argv[1] + """'s Dashboard</a> &emsp;&emsp;&emsp;&emsp;
+        				<a href="javascript:makeFriend()">Make a friend</a> &emsp;&emsp;&emsp;&emsp;
+        				<a href="javascript:seeFriend()">See a friend</a>  &emsp;&emsp;&emsp;&emsp; 
         				<div class="logout">
        					<a href="http://www.cs.mcgill.ca/~ycukra/PluggedIn/home/">Logout</a></div>
     		    		</div> \n"""   
 
 htmlTail = """		</div>
+
+        <script> 
+            function dash() {
+                alert("aaaaah!");
+            }
+        
+        </script>
+
+
+
 		</body>
 	</html>"""   
 
