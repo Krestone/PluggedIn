@@ -33,12 +33,13 @@ html = open("index.html","a")
 htmlForm = """
 		<div class="updatespace">
     		<h1>Update.</h1>
-    		<form name="statusupdate" action="./status.py usrname">
-        		<textarea name="update"  placeholder="What's hogging your processors today?"> </textarea>
+    		<form name="statusupdate" action="http://www.cs.mcgill.ca/~ycukra/cgi-bin/status.py" method="get">
+        		<textarea name="update" placeholder="What's hogging your processors today?"> </textarea>
+    			<input type="hidden" name="username" value="%s">
     			<button type="submit" value=" "/> 
     			<h2>COMMIT</h2>
 			</form>
-   		</div> \n"""
+   		</div> \n""" % usrname
 html.write(htmlForm)
 html.close()
 
