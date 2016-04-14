@@ -83,8 +83,8 @@ if __name__ == "__main__":
 #append html code to index.html 
 html.write(htmlTop)
 html.write(htmlForm)
-html.write(htmlTail)
 html.write(htmlUpdate)
+html.write(htmlTail)
 #close the file
 html.close()	
 
