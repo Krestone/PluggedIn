@@ -165,7 +165,7 @@ textarea{
 }
 
 button[type=submit]{
-    background-image:url(plug.png);
+    background-image:url(cgi-bin/plug.png);
     background-color: transparent; 
     height:50px; 
     width:50px; 
@@ -182,6 +182,6 @@ button[type=submit]{
 }
 
 button[type=submit]:hover {
-    background-image: url(plughover.png);
+    background-image: url(cgi-bin/plughover.png);
 }
 
