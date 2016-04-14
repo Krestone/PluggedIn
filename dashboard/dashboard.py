@@ -18,7 +18,7 @@ htmlTop = """Content-type:text/html\n\n
     
 				<body>
     				<div class="topmenu">
-        				<a href="dashboard">""" + usrname + """</a> &emsp;&emsp;&emsp;&emsp;
+        				<a href="dashboard">""" + usrname + """'s Dashboard</a> &emsp;&emsp;&emsp;&emsp;
         				<a href="makefriend">Make a friend</a> &emsp;&emsp;&emsp;&emsp;
         				<a href="seefriend">See a friend</a>  &emsp;&emsp;&emsp;&emsp; 
         				<div class="logout">
