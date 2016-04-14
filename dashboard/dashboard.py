@@ -22,7 +22,7 @@ htmlTop = """Content-type:text/html\n\n
     
 				<body>
     				<div class="topmenu">
-        				<a href="javascript:dash()">""" + sys.argv[1] + """'s Dashboard</a> &emsp;&emsp;&emsp;&emsp;
+        				<a href="javascript:dash();">""" + sys.argv[1] + """'s Dashboard</a> &emsp;&emsp;&emsp;&emsp;
         				<a href="javascript:makeFriend()">Make a friend</a> &emsp;&emsp;&emsp;&emsp;
         				<a href="javascript:seeFriend()">See a friend</a>  &emsp;&emsp;&emsp;&emsp; 
         				<div class="logout">
