@@ -1,9 +1,16 @@
 #!/usr/bin/python
-
+import os
 import cgi
 import sys
 #get username from c & store it to usrname
 usrname = sys.argv[1]
+os.environ["userName"] = sys.argv[1]
+
+html2 = open("index.html","w")
+
+#html3="""<html><body>%s</body></html>""" % usrname
+
+
 
 #store html code to Strings
 htmlTop = """Content-type:text/html\n\n
@@ -15,26 +22,35 @@ htmlTop = """Content-type:text/html\n\n
     
 				<body>
     				<div class="topmenu">
-        				<a href="dashboard">Dashboard</a> &emsp;&emsp;&emsp;&emsp;
+        				<a href="dashboard">""" + sys.argv[1] + """'s Dashboard</a> &emsp;&emsp;&emsp;&emsp;
         				<a href="makefriend">Make a friend</a> &emsp;&emsp;&emsp;&emsp;
         				<a href="seefriend">See a friend</a>  &emsp;&emsp;&emsp;&emsp; 
         				<div class="logout">
        					<a href="http://www.cs.mcgill.ca/~ycukra/PluggedIn/home/">Logout</a></div>
-    				</div> \n"""
+    		    		</div> \n"""   
 
 htmlTail = """		</div>
 		</body>
-	</html>"""
+	</html>"""   
+
+
+html2.write(htmlTop)
+html2.close()
+#quit()
+html = open("index.html", "a")
+
 
 #form to fill out when update the status
 htmlForm = """<div class="updatespace">
         		<h1>Update.</h1>
-        		<form name="statusupdate" action="./status.py usrname">
+        		<form name="statusupdate" action="http://www.cs.mcgill.ca/~ycukra/cgi-bin/status.py" method="get">
             		<textarea name="update"  placeholder="What's hogging your processors today?"> </textarea>
-        			<button type="submit" value=" "/> 
+        		<input type="hidden" name="username" value="%s">
+                                <button type="submit" value=" "/> 
         			<h2>COMMIT</h2>
     			</form>
-       		</div> \n"""
+       		</div> \n""" % usrname
+
 
 htmlUpdate = """<div class="dashspace">
         <div class="dashhead">
@@ -70,9 +86,8 @@ if __name__ == "__main__":
 		cgi.print_exception()
 
 	#append html code to index.html 
-	html.write(htmlTop)
-	html.write(htmlForm)
-	html.write(htmlUpdate)
+	html.write(htmlTop+htmlForm+htmlUpdate)
+	html.close()
 
 	#open the status.txt
 	with open("status.txt") as f:
@@ -89,13 +104,14 @@ if __name__ == "__main__":
 			i=i+1      		
 	#if there's no recent status, then just show default status
 	else:
-		html.write(htmlDefaultStatus)
+		html2 = open("index.html","a")
+		html2.write(htmlDefaultStatus)
 		
 	#append the last part of html code	
-	html.write(htmlTail)
+	html2.write(htmlTail)
 	#close the file
 	f.close()
-	html.close()	
+	html2.close()	
 
 	
 	
