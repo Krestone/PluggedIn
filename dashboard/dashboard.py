@@ -3,7 +3,7 @@
 import cgi
 import sys
 #get username from c & store it to usrname
-usrname = sys.argv[0]
+usrname = sys.argv[1]
 
 #store html code to Strings
 htmlTop = """Content-type:text/html\n\n
