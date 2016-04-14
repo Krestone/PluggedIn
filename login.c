@@ -6,6 +6,37 @@ int i= 0;
 char * entries[2]; // 1st entry is user name 2nd is password
 int loginStatus=0;
 
+//prepare the commandline call line which in "./scriptName UserName" format(note the space inbetween)
+char *commandParser()
+{
+    char command[50], argument[50];
+
+    char *nameWithSpace =(char *)malloc( strlen(entries[0]) + 2 );
+   *(nameWithSpace)=' ';
+    char * counterPointer= nameWithSpace;
+    counterPointer++;
+   //we are going to insert a space before the username
+    int i=0;
+    for(i; i <  strlen(entries[0]);  i++ )
+   {
+     *(counterPointer++)=*(entries[0]+i);
+
+   }
+
+   *(counterPointer)='\0';
+
+   strcpy(argument, nameWithSpace);
+   strcpy(command, "./dashboard.py");//the python script that will be called
+   strcat(command,argument);
+   //command line command now in corect
+
+
+   return command;
+
+}
+
+
+
 //takes input an already parsed section, eg username=bob
 int parser( char *s )
 /* Nested strtoks are a problem so this is our own parser*/
@@ -76,7 +107,7 @@ int main(void)
     printf("<html>");
     printf("<head><title>ERROR 01001</title></head>");
     printf("<body><p>DATABASE NOT FOUND</p></body>");
-    fclose(validate); //validation done
+
     return 1;
 
  }
@@ -125,7 +156,39 @@ int main(void)
   //publish dashboard to STDOUT character by character if valid login
   if(loginStatus)
   {
-     system("./systtest.cgi"); //name of the python script to be called here    
+       char *parsedCommand = commandParser(); //fromat commandline input
+       system(parsedCommand); //we are calling dashboard.py here   
+  
+       FILE *in=fopen("index.html", "rt"); //File pointer to the dashboard
+       //check if dashboard available
+       if(in == NULL) //give 404 Error if dashboard is missing
+       {
+         printf("%s%c%c\n","Content-Type:text/html",13,10);
+         printf("<html>");
+
+         printf("<head><title>ERROR</title></head>");
+         printf("<body><p>Error 404 Dashboard Not Found</p></body>");
+       // printf("<P>Username is %s", entries[0]);
+        // printf("<P>Password is %s", entries[1]);
+         return 1;
+
+        }
+
+      //proceed to printing dashboard
+      printf("%s%c%c\n","Content-Type:text/html",13,10);
+
+      int c;
+      c=fgetc(in);
+      while(!feof(in) )
+      {
+       fputc(c, stdout);
+       c=fgetc(in);
+      }
+      fclose(in);
+      return 0;
+
+
+
   }
   else
   {  
