@@ -1,9 +1,21 @@
 #!/usr/bin/python
-
+import os
 import cgi
 import sys
 
-usrname = sys.argv[0]
+print "Content-type:text/html\r\n\r\n"
+print '<html>'
+print '<head>'
+print '<title>Hello Word - First CGI Program</title>'
+print '</head>'
+print '<body>'
+print '<h2>Hello Word! This is my first CGI program</h2>'
+print '</body>'
+print '</html>'
+
+
+
+
 #test = raw_input("status:")
 #create a file to store the status input
 temp_file = open("temp_file.txt", "w")
@@ -17,6 +29,8 @@ temp_file.write(form.getvalue('update'))
 
 #close file
 temp_file.close()
+
+
 
 #store lines in file to a list -> because the status is restricted to one line, if there's
 #more than one line, it's easier to get rid of it.
