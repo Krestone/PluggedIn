@@ -112,21 +112,29 @@ html=open("index.html", "a")
 htmlTail = """		
 		</div>
 
-		<script>
-			function dash() {
+		<form name="makefriend" action="MAKEFRIENDURL" method="get">
+			<input type="hidden" name = "username" value="%s">
+		</form>
 
+		<form name="seefriend" action="SEEFRIENDURL" method="get">
+			<input type="hidden" name = "username" value="%s">
+		</form>
+
+		<script>
+			function launchDash() {
+				document.forms["statusupdate"].submit();
 			}
 
 			function launchMake() {
-
+				document.forms["makefriend"].submit();
 			}
 
 			function launchSee() {
-
+				document.forms["seefriend"].submit();
 			}
 		</script>	
 	</body>
-</html>"""
+</html>""" % usrname, usrname
 html.write(htmlTail)
 html.close()
 
