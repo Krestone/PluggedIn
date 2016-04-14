@@ -30,16 +30,11 @@ htmlTop = """Content-type:text/html\n\n
     		    		</div> \n"""   
 
 htmlTail = """		</div>
-
-        <script> 
-            function dash() {
-                alert("aaaaah!");
-            }
-        
-        </script>
-
-
-
+            <script> 
+                function dash() {
+                    alert("aaaaah!");
+                }
+            </script>
 		</body>
 	</html>"""   
 
