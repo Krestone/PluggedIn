@@ -1,0 +1,188 @@
+a {
+    color:#ffffff;
+    text-decoration: none;
+}
+
+a:hover {
+    color:#a02;
+}
+
+body {
+    position:static; 
+    background-color: #722726; 
+    font-family: helvetica; 
+
+}
+
+h1 {
+    font-weight: 800;
+    font-size: 300%;
+    text-transform: none;
+    padding-bottom: 70px;
+    padding-left:15px; 
+    color:#ffffff; 
+}
+
+h2 {
+    font-weight:700; 
+    color:#ffffff; 
+    font-size: 250%; 
+    position:absolute;  
+    height:auto; 
+    right:60px; 
+    top:-17px; 
+}
+
+.topmenu {
+    z-index: 1;
+    text-transform: uppercase;
+    font-family: helvetica;
+    font-weight:600;
+    position:fixed;
+    top:0;
+    left:0; 
+    height:15px;
+    padding-top: 10px;
+    padding-bottom:10px; 
+    width:100%;
+    min-width:900px;
+    background-color: #47211e;
+    color:red;
+    text-align: left;
+    padding-left: 10px;
+}
+
+.logout {
+    position:fixed; 
+    float:right;
+    top:10px; 
+    left:-10; 
+    text-align: right; 
+    z-index: -1; 
+    width:100%; 
+    min-width: 515px;  
+}
+
+.updatespace {
+    position:absolute;
+    top:50px; 
+    left:0px;
+    height:400px;
+    width:90%;
+    left:5%; 
+    right:5%; 
+    background:none; 
+    border-style: dotted; 
+    border-color: #d6d4d4; 
+}
+
+
+.dashspace {
+    position:absolute; 
+    top:500; 
+    left:0px; 
+    height: auto; 
+    width: 90%; 
+    left:5%; 
+    right:5%; 
+    background:none; 
+    border-style: dotted; 
+    border-color:#d6d4d4;
+    margin-bottom:40px; 
+}
+
+.dashhead {
+    height:70px; 
+    width:100%; 
+}
+
+.friendupdate{
+    float:left;  
+    background: none;  
+    height:auto;
+    width:90%;
+    left:5%; 
+    right:5%; 
+    bottom:20px; 
+    color:#000000; 
+}
+
+.friendusername{
+    padding-left: 2.5%; 
+    position:absolute; 
+    padding-top:7px; 
+    padding-bottom: 5px; 
+    padding-right: 5%; 
+    font-family: helvetica; 
+    font-weight: 600;
+    width:auto; 
+    left:5%; 
+    right:5%; 
+    background: none; 
+    border-style: dotted; 
+    border-width: 1px; 
+    text-transform: uppercase; 
+    color:#ffffff; 
+    overflow:auto; 
+
+    
+}
+
+.friendstatus{
+    width:auto; 
+    margin-left:7%; 
+    height:auto; 
+    padding-top: 55px; 
+    padding-bottom: 25px; 
+    padding-right: 10%; 
+    color:#ffffff;
+    font-family: helvetica; 
+    font-weight: lighter; 
+    font-size:11pt; 
+    line-height: 13pt;
+    text-align: justify; 
+    overflow:auto; 
+    
+}
+
+textarea{
+    position:absolute;
+    left:2.5%; 
+    right:2.5%; 
+    height:60%;
+    top:100px; 
+    bottom:10%; 
+    padding-top:20px; 
+    padding-left:30px; 
+    padding-right:30px; 
+    padding-bottom: 20px; 
+    font-size:20pt; 
+    font-family: helvetica; 
+    font-weight: 100; 
+    background-color:#ffffff;
+    color:#47211e; 
+    width:95%; 
+    resize:none; 
+}
+
+button[type=submit]{
+    background-image:url(plug.png);
+    background-color: transparent; 
+    height:50px; 
+    width:50px; 
+    border:none; 
+    border-style: none; 
+    outline: none; 
+    position:absolute; 
+    right:2.5%; 
+    top:345px; 
+    background-repeat: no-repeat;
+    border-style: none; 
+    background-position: 50% 50%;
+    background-size:40px 40px; 
+}
+
+button[type=submit]:hover {
+    background-image: url(plughover.png);
+}
+

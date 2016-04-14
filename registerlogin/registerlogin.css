@@ -1,0 +1,142 @@
+body {
+    background-color: #722726;
+    font-family: helvetica; 
+    color: #ffffff;
+    position:static; 
+}
+
+a {
+    color:#ffffff;
+    text-decoration: none;
+}
+
+a:hover {
+    color:#a02;
+}
+
+h1 {
+    font-weight: 800;
+    font-size: 300%;
+    text-transform: none;
+    padding-bottom: 70px;
+}
+
+h2 {
+    font-weight:100; 
+    font-size: 75%; 
+    margin-top:-100px;
+    line-height: 15px;
+    text-transform: none;
+}
+
+ol {
+    line-height: 20px;
+}
+
+.topmenu {
+    z-index: 1;
+    text-transform: uppercase;
+    font-family: helvetica;
+    font-weight:600;
+    position:fixed;
+    top:0;
+    left:0; 
+    height:15px;
+    padding-top: 10px;
+    padding-bottom:10px; 
+    width:100%;
+    min-width:900px;
+    background-color: #47211e;
+    color:red;
+    text-align: left;
+    padding-left: 10px;
+}
+
+.login {
+    font-family:helvetica;
+    font-weight: 100;
+    line-height: 27px;
+    text-transform: uppercase;
+    position:relative;
+    margin-left:; 
+    margin-right:;
+    left:25px;
+    width:300px; 
+    height:100%;
+    float:left;
+    padding-left:10px;
+    padding-right:50px;
+}
+
+.register{
+    font-family:helvetica;
+    font-weight: 100;
+    line-height: 27px;
+    text-transform: uppercase;
+    position:relative;
+    margin-left:; 
+    margin-right:;
+    left:25px;
+    width:350px; 
+    height:100%;
+    float:left;
+    padding-left:10px;
+    padding-right:10px;
+}
+
+.whatyouneed{
+    margin-left:-290px; 
+    width: 350px;
+    text-align: left; 
+    margin-top: 125px; 
+    color: #ffffff; 
+    font-size: 140%; 
+}
+
+input[type=text] {
+    padding-top:6px;
+    background-color: #a02a26; 
+    background-image: url("./plug.png");
+    color:#ffffff;
+    background-size: 15px 15px; 
+    background-repeat: no-repeat;
+    background-position: 6px 6px;
+    padding-left: 30px;
+    padding-bottom: 6px;
+    position:absolute;
+    left:120px;
+    float:left;
+    width:200px;
+    border: none;
+}
+
+.logregbox {
+    position:relative; 
+    margin-left:auto;
+    margin-right:auto;
+    width:800px;
+    margin-top: 150px;
+    margin-bottom: auto;
+    height: 400px;
+}
+
+button[type=submit]{
+    background-image:url(plug.png);
+    background-color: transparent; 
+    height:40px; 
+    width:40px; 
+    border:none; 
+    border-style: none; 
+    outline: none; 
+    position:absolute; 
+    padding:none; 
+    left:290px; 
+    background-repeat: no-repeat;
+    border-style: none; 
+    background-position: 50% 50%;
+    background-size:25px 25px; 
+}
+
+button[type=submit]:hover {
+    background-image: url(plughover.png);
+}
