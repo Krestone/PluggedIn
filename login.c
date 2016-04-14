@@ -5,11 +5,12 @@
 int i= 0;
 char * entries[2]; // 1st entry is user name 2nd is password
 int loginStatus=0;
-
+char command[50];
 //prepare the commandline call line which in "./scriptName UserName" format(note the space inbetween)
 char *commandParser()
 {
-    char command[50], argument[50];
+    //prepare the commandline call line which in "./scriptName UserName" format(note the space inbetween)
+    char argument[50];
 
     char *nameWithSpace =(char *)malloc( strlen(entries[0]) + 2 );
    *(nameWithSpace)=' ';
@@ -25,13 +26,19 @@ char *commandParser()
 
    *(counterPointer)='\0';
 
+
+
+
    strcpy(argument, nameWithSpace);
-   strcpy(command, "./dashboard.py");//the python script that will be called
+   strcpy(command, "./dashboard.py");
    strcat(command,argument);
    //command line command now in corect
 
 
-   return command;
+
+
+
+    return command;
 
 }
 
@@ -143,8 +150,6 @@ int main(void)
     
 
   fclose(validate); //validation done
-
-
 
 
 
