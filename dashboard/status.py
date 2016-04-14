@@ -3,16 +3,6 @@ import os
 import cgi
 import sys
 
-print "Content-type:text/html\r\n\r\n"
-print '<html>'
-print '<head>'
-print '<title>Hello Word - First CGI Program</title>'
-print '</head>'
-print '<body>'
-print '<h2>Hello Word! This is my first CGI program</h2>'
-print '</body>'
-print '</html>'
-
 
 
 
@@ -22,6 +12,21 @@ temp_file = open("temp_file.txt", "w")
 
 #get input
 form = cgi.FieldStorage()
+
+usrname= form.getvalue("username")
+statusupdate=form.getvalue("update")
+
+print "Content-type:text/html\r\n\r\n"
+print "<html>"
+print "<head>"
+print "<title>Hello</title>"
+print "</head>"
+print "<body>"
+print "<h2> %s </h2>" % statusupdate
+print "<h2> %s </h2>" % usrname
+print "</body>"
+print "</html>"
+
 
 #write input to the txt file
 #temp_file.write(test)
