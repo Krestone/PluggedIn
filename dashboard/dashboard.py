@@ -41,14 +41,16 @@ htmlForm = """
    		</div> \n"""
 html.write(htmlForm)
 html.close()
-########################################## END OF SHAM'S CODE 
 
-
-
+html = open("index.html","a") 
 htmlUpdate = """<div class="dashspace">
         <div class="dashhead">
             <h1>UpToDate.</h1>
         </div> \n"""
+html.write(htmlUpdate)
+html.close()
+########################################## END OF SHAM'S CODE 
+
 
 htmlDefaultStatus = """<div class="friendupdate">
             <div class="friendusername">SYSTEM</div>
@@ -56,8 +58,7 @@ htmlDefaultStatus = """<div class="friendupdate">
         </div> \n"""
 
 html = open("index.html","a")
-
-        
+  
 def update( status_list, i ):
 	temp = status_list[i]
 	html.write("""<div class="friendupdate">
