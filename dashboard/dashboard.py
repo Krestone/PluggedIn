@@ -1,60 +1,48 @@
 #!/usr/bin/python
-import os
+
 import cgi
 import sys
 #get username from c & store it to usrname
 usrname = sys.argv[1]
-os.environ["userName"] = sys.argv[1]
 
-html2 = open("index.html","w")
-
-#html3="""<html><body>%s</body></html>""" % usrname
-
-
+html = open("index.html","w")
 
 #store html code to Strings
 htmlTop = """Content-type:text/html\n\n
-			<html>
-				<head>
-    				<link rel="stylesheet" href="../dashboard.css">
-    				<title>PluggedIn - dashboard</title>
-				</head>
-    
-				<body>
-    				<div class="topmenu">
-        				<a href="javascript:dash();">""" + sys.argv[1] + """'s Dashboard</a> &emsp;&emsp;&emsp;&emsp;
-        				<a href="javascript:makeFriend()">Make a friend</a> &emsp;&emsp;&emsp;&emsp;
-        				<a href="javascript:seeFriend()">See a friend</a>  &emsp;&emsp;&emsp;&emsp; 
-        				<div class="logout">
-       					<a href="http://www.cs.mcgill.ca/~ycukra/PluggedIn/home/">Logout</a></div>
-    		    		</div> \n"""   
+<html>
+	<head>
+		<link rel="stylesheet" href="../dashboard.css">
+		<title>PluggedIn - dashboard</title>
+	</head>
 
-htmlTail = """		</div>
-            <script> 
-                function dash() {
-                    alert("aaaaah!");
-                }
-            </script>
-		</body>
-	</html>"""   
+	<body>
+		<div class="topmenu">
+	        <a href=javascript:launchDash()>Dashboard</a> &emsp;&emsp;&emsp;&emsp;
+	        <a href="javascript:launchMake()">Make a friend</a> &emsp;&emsp;&emsp;&emsp;
+	        <a href="javascript:launchSee()">See a friend</a>  &emsp;&emsp;&emsp;&emsp; 
+	        <div class="logout">
+	        <a href="http://www.cs.mcgill.ca/~ycukra/PluggedIn/home/">Logout</a></div>
+    </div>"""
+html.write(htmlTop)
+html.close()
 
-
-html2.write(htmlTop)
-html2.close()
-#quit()
-html = open("index.html", "a")
 
 
 #form to fill out when update the status
-htmlForm = """<div class="updatespace">
-        		<h1>Update.</h1>
-        		<form name="statusupdate" action="http://www.cs.mcgill.ca/~ycukra/cgi-bin/status.py" method="get">
-            		<textarea name="update"  placeholder="What's hogging your processors today?"> </textarea>
-        		<input type="hidden" name="username" value="%s">
-                                <button type="submit" value=" "/> 
-        			<h2>COMMIT</h2>
-    			</form>
-       		</div> \n""" % usrname
+html = open("index.html","a")
+htmlForm = """
+		<div class="updatespace">
+    		<h1>Update.</h1>
+    		<form name="statusupdate" action="./status.py usrname">
+        		<textarea name="update"  placeholder="What's hogging your processors today?"> </textarea>
+    			<button type="submit" value=" "/> 
+    			<h2>COMMIT</h2>
+			</form>
+   		</div> \n"""
+html.write(htmlForm)
+html.close()
+########################################## END OF SHAM'S CODE 
+
 
 
 htmlUpdate = """<div class="dashspace">
@@ -66,6 +54,9 @@ htmlDefaultStatus = """<div class="friendupdate">
             <div class="friendusername">SYSTEM</div>
             <div class="friendstatus">No recent status from your friends. OMG your friends are so quiet. GO AND MAKE NEW FRIENDS!!!</div>            
         </div> \n"""
+
+html = open("index.html","a")
+
         
 def update( status_list, i ):
 	temp = status_list[i]
@@ -91,8 +82,7 @@ if __name__ == "__main__":
 		cgi.print_exception()
 
 	#append html code to index.html 
-	html.write(htmlTop+htmlForm+htmlUpdate)
-	html.close()
+	html.write(htmlUpdate)
 
 	#open the status.txt
 	with open("status.txt") as f:
@@ -109,15 +99,37 @@ if __name__ == "__main__":
 			i=i+1      		
 	#if there's no recent status, then just show default status
 	else:
-		html2 = open("index.html","a")
-		html2.write(htmlDefaultStatus)
+		html.write(htmlDefaultStatus)
 		
-	#append the last part of html code	
-	html2.write(htmlTail)
 	#close the file
 	f.close()
-	html2.close()	
+	html.close()	
 
 	
 	
-	
+################################################# END OF QI'S CODE 	
+
+html=open("index.html", "a")
+htmlTail = """		
+		</div>
+
+		<script>
+			function dash() {
+
+			}
+
+			function launchMake() {
+
+			}
+
+			function launchSee() {
+
+			}
+		</script>	
+	</body>
+</html>"""
+html.write(htmlTail)
+html.close()
+
+
+
