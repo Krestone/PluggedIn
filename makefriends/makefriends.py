@@ -23,7 +23,7 @@ html_code="""
 <body> 
 
     <div class="topmenu">
-        <a href="dashboard">Dashboard</a> &emsp;&emsp;&emsp;&emsp;
+        <a href="http://www.cs.mcgill.ca/~ycukra/cgi-bin/index.html">Dashboard</a> &emsp;&emsp;&emsp;&emsp;
         <a href="makefriend">Make a friend</a> &emsp;&emsp;&emsp;&emsp;
         <a href="seefriend">See a friend</a>  &emsp;&emsp;&emsp;&emsp; 
         <div class="logout">
