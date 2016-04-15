@@ -37,30 +37,36 @@ Once the form is completed, it will return the form url with ?[FRIENDUSERNAME]=,
                     </div>
                 </form>     
             </div>
-        
-        <form name="makefriend" action="MAKEFRIENDURL" method="get">
-            <input type="hidden" name = "username" value="USRNAME">
-        </form>
 
-        <form name="seefriend" action="SEEFRIENDURL" method="get">
-            <input type="hidden" name = "username" value="USRNAME">
-        </form>
+    <form name="makefriend" action="MAKEFRIENDURL" method="get">
+    <input type="hidden" name = "username" value="%s">
+    </form>
 
-        <form name="statusupdate" action="DASHSCRIPT" method="get">
-            <input type="hidden" name = "username" value="USRNAME">
-        </form>
+    <form name="seefriend" action="www.cs.mcgill.ca/~ycukra/cgi-bin/seefriends.cgi" method="get">
+        <input type="hidden" name = "username" value="%s">
+    </form>
+    
+    <form name="statusupdate" action="http://www.cs.mcgill.ca/~ycukra/cgi-bin/status.py" method="get">
+        <input type="hidden" name = "update" value="">
+        <input type="hidden" name = "username" value="%s">
+    </form>
 
-        <script>
-            function launchDash() {
-                document.forms["statusupdate"].submit();
-            }
+    <script>
+        function launchDash() {
+            document.forms["statusupdate"].submit();
+        }
 
-            function launchMake() {
-                document.forms["makefriend"].submit();
-            }
+        function launchMake() {
+            document.forms["makefriend"].submit();
+        }
 
-            function launchSee() {
-                document.forms["seefriend"].submit();
-            }
-        </script>		
-    </body>
+        function launchSee() {
+            document.forms["seefriend"].submit();
+        }
+    </script>       
+</body>
+</html>
+<!--THERE ARE THREE %S'S SO PLS PUT USRNAME FOR ALL LOL YAY-->
+
+
+
