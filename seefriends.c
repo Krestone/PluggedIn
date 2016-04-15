@@ -88,10 +88,25 @@ int main()
 
   int index=0;
   printf("%s%c%c\n","Content-Type:text/html",13,10);
-         printf("<html>");
+   printf=("<html>
+	    <head>
+		<link rel="stylesheet" href="./seefriends.css">
+		<title>PluggedIn - dashboard</title>
+	</head>
 
-         printf("<head><title>ERROR</title></head>");
-         printf("<body><p>Error 404 Dashboard Not Found</p></body>");
+	<body>
+		<div class="topmenu">
+	        <a href=javascript:launchDash()>Dashboard</a> &emsp;&emsp;&emsp;&emsp;
+	        <a href="javascript:launchMake()">Make a friend</a> &emsp;&emsp;&emsp;&emsp;
+	        <a href="javascript:launchSee()">See a friend</a>  &emsp;&emsp;&emsp;&emsp; 
+	        <div class="logout"><a href="http://www.cs.mcgill.ca/~ycukra/PluggedIn/home/">Logout</a></div>
+        </div>
+    
+        <div class="content">
+    	<div class="header"><h1>Pull.</h1> </div>
+            <div class="userlist">
+                <form name="seeuser" action="GENERATEFRIENDPROFILE" method="get"> 
+                <input type="hidden" name = "username" value="USRNAME"><!-- action, method-->")
 
   for(index; index<friendNumber; index++)
   {
