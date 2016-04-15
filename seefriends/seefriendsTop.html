@@ -1,7 +1,7 @@
 <html>
 	<head>
 		<link rel="stylesheet" href="./seefriends.css">
-		<title>PluggedIn - dashboard</title>
+		<title>PluggedIn - see friends</title>
 	</head>
 
 	<body>
@@ -15,5 +15,5 @@
         <div class="content">
     	<div class="header"><h1>Pull.</h1> </div>
             <div class="userlist">
-                <form name="seeuser" action="GENERATEFRIENDPROFILE" method="get"> 
-                <input type="hidden" name = "username" value="USRNAME"><!-- action, method--> 
+                <form name="seeuser" action="http://www.cs.mcgill.ca/~shossa15/cgi-bin/displayuser.py" method="get"> 
+                <input type="hidden" name = "username" value="%s">
