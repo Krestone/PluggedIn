@@ -37,7 +37,7 @@ html_code="""
     <div class="content">
     	<div class="header"><h1>Connect.</h1> </div>
     	<div class="userlist">
-    		<form name="checkusers" action="test.cgi" method="post"> <!-- action, method--> 
+    		<form name="checkusers" action="http://cs.mcgill.ca/~shossa15/cgi-bin/makefriends.py" method="post"> <!-- action, method--> 
     		<input type="hidden" name="username" value="%s">
 """ % usrname
 
@@ -66,8 +66,6 @@ while currentuser!="":
 	currentuser=USERS.readline() # now, get next username 
 
 USERS.close() # close the file 
-
-
 
 # finish HTML code 
 html_code += """	
