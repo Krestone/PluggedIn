@@ -45,7 +45,7 @@ while currentuser!="":
 
 	# create checkbox 
 	html_code += ("""
-		<div class="check"><input type="checkbox" name="makefriend" value="%s"></div>
+		<div class="check"><input type="checkbox" name="%s" value=""></div>
 		""" % currentuser) 
 	html_code += ("""
 		<div class="username"><h2>%s</h2></div> 
