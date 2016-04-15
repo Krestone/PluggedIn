@@ -33,7 +33,7 @@ html_code="""
     <div class="content">
     	<div class="header"><h1>Connect.</h1> </div>
     	<div class="userlist">
-    		<form name="checkusers" action="http://www.cs.mcgi" method="post"> <!-- action, method--> 
+    		<form name="checkusers" action="" method="post"> <!-- action, method--> 
 """
 
 currentuser=USERS.readline() # get username 
@@ -94,7 +94,7 @@ html_code += """
     </script>		
 </body>
 
-</html> """
+</html> """ % usrname, usrname
 
 try: 
 	INDEX=open("index.html", "w")

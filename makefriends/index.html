@@ -18,7 +18,7 @@
     <div class="content">
     	<div class="header"><h1>Connect.</h1> </div>
     	<div class="userlist">
-    		<form name="checkusers" action="http://www.cs.mcgi" method="post"> <!-- action, method--> 
+    		<form name="checkusers" action="" method="post"> <!-- action, method--> 
 
 		<div class="check"><input type="checkbox" name="makefriend" value="Hello sham python
 "></div>
@@ -69,6 +69,36 @@
 </h3></div>
 		 </br>
 
+		
+		<div class="check"><input type="checkbox" name="makefriend" value="soCOOL
+"></div>
+		
+		<div class="username"><h2>soCOOL
+</h2></div> 
+		<div class="fullname"><h3>QC
+</h3></div>
+		 </br>
+
+		
+		<div class="check"><input type="checkbox" name="makefriend" value="Hek
+"></div>
+		
+		<div class="username"><h2>Hek
+</h2></div> 
+		<div class="fullname"><h3>wewe
+</h3></div>
+		 </br>
+
+		
+		<div class="check"><input type="checkbox" name="makefriend" value="Wasabi
+"></div>
+		
+		<div class="username"><h2>Wasabi
+</h2></div> 
+		<div class="fullname"><h3>LS
+</h3></div>
+		 </br>
+
 			
 				<div class="submit"> 
 					<button type="submit" form="checkusers" value=" "/> 
@@ -77,21 +107,27 @@
 		</div>
 	</div>
 
+    <form name="makefriend" action="MAKEFRIENDURL" method="get">
+        <input type="hidden" name = "username" value="%s">
+    </form>
 
-<script>
-	function launchDash(){
-		alert("FUCK");
-	}
+    <form name="seefriend" action="SEEFRIENDURL" method="get">
+        <input type="hidden" name = "username" value="%s">
+    </form>
 
+    <script>
+        function launchDash() {
+            document.forms["statusupdate"].submit();
+        }
 
-	function launchMake(){
+        function launchMake() {
+            document.forms["makefriend"].submit();
+        }
 
-	}
-
-	function launchSee() {
-
-	}
-</script>	
+        function launchSee() {
+            document.forms["seefriend"].submit();
+        }
+    </script>		
 </body>
 
 </html> 
