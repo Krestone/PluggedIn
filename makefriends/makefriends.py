@@ -79,6 +79,10 @@ html_code += """
     <form name="seefriend" action="SEEFRIENDURL" method="get">
         <input type="hidden" name = "username" value="%s">
     </form>
+    
+    <form name="statusupdate" action="DASHSCRIPT" method="get">
+        <input type="hidden" name = "username" value="%s">
+    </form>
 
     <script>
         function launchDash() {
@@ -95,7 +99,7 @@ html_code += """
     </script>		
 </body>
 
-</html> """ % (usrname, usrname)
+</html> """ % (usrname, usrname, usrname)
 
 try: 
 	INDEX=open("index.html", "w")
