@@ -1,0 +1,44 @@
+a {
+    color:#ffffff;
+    text-decoration: none;
+}
+
+a:hover {
+    color:#a02;
+}
+
+body {
+    position:static; 
+    background-color: #722726; 
+    font-family: helvetica; 
+}
+
+.topmenu {
+    z-index: 1;
+    text-transform: uppercase;
+    font-family: helvetica;
+    font-weight:600;
+    position:fixed;
+    top:0;
+    left:0; 
+    height:15px;
+    padding-top: 10px;
+    padding-bottom:10px; 
+    width:100%;
+    min-width:900px;
+    background-color: #47211e;
+    color:red;
+    text-align: left;
+    padding-left: 10px;
+}
+
+.logout {
+    position:fixed; 
+    float:right;
+    top:10px; 
+    left:-10; 
+    text-align: right; 
+    z-index: -1; 
+    width:100%; 
+    min-width: 515px;  
+}
