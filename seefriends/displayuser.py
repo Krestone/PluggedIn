@@ -8,6 +8,9 @@ form=cgi.FieldStorage()
 # get the username from the hidden field
 
 usrname=form.getvalue("username")
+friend=form.getvalue("friend")
+
+
 
 htmlTop = """Content-type:text/html\n\n
 <html>
