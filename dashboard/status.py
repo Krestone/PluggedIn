@@ -8,7 +8,8 @@ import cgi
 temp_file = open("temp_file.txt", "w")
 
 #get input
-form = cgi.FieldStorage()
+#form = cgi.FieldStorage()
+form = cgi.FieldStorage(keep_blank_values=1)
 
 usrname= form.getvalue("username")
 statusupdate=form.getvalue("update")
