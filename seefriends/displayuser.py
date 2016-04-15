@@ -16,7 +16,7 @@ with open("users.txt") as f:
 i=0
 #search through info for friend
 while (i < (len(info)-3)):
-	if (line.split(' ', 1)[0] == friend):
+	if (info[i].split(' ', 1)[0] == friend):
 		fullname = info[i+2]
 		jobdescription = info[i+3]
 		break
