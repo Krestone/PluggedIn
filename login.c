@@ -99,6 +99,7 @@ int main(void)
   while(i<2) 
   {
     parser(token);
+    
     token= strtok(NULL,"&");
   }
   
@@ -121,11 +122,14 @@ int main(void)
  
   char field[50];
   fgets( field, 50, validate);
-  field[strlen(field) - 1] = '\0'; //removes newline
-
+  field[strlen(field) - 1] = '\0'; 
+  char *usr;
+  usr=field; 
+  strtok(usr," ");  
+  
   while(!feof(validate) ) 
   {
-    if(strcmp(entries[0], field) == 0)//if user name is valid
+    if(strcmp(entries[0], usr) == 0)//if user name is valid
     {
       fgets( field, 50, validate);
       field[strlen(field) - 1] = '\0';
@@ -144,7 +148,9 @@ int main(void)
     for(c1; c1<4; c1++)
     {  
       fgets( field, 50, validate);
-      field[strlen(field) - 1] = '\0'; 
+      field[strlen(field) - 1] = '\0';
+      usr=field; 
+      strtok(usr," "); 
     }
   }
     
