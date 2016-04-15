@@ -79,11 +79,11 @@ htmlTop+= """
 		</div>
 	</div>
 
-    <form name="makefriend" action="cs.mcgill.ca/~shossa15/cgi-bin/makefriends.py" method="get">
+    <form name="makefriend" action="http://www.cs.mcgill.ca/~shossa15/cgi-bin/makefriends.py" method="get">
         <input type="hidden" name = "username" value="%s">
     </form>
 
-    <form name="seefriend" action="www.cs.mcgill.ca/~ycukra/cgi-bin/seefriends.cgi" method="get">
+    <form name="seefriend" action="http://www.cs.mcgill.ca/~ycukra/cgi-bin/seefriends.cgi" method="get">
         <input type="hidden" name = "username" value="%s">
     </form>
     

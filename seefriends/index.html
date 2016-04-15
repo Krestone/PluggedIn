@@ -1,7 +1,7 @@
 <html>
 	<head>
 		<link rel="stylesheet" href="./seefriends.css">
-		<title>PluggedIn - dashboard</title>
+		<title>PluggedIn - see friends</title>
 	</head>
 
 	<body>
@@ -15,20 +15,20 @@
         <div class="content">
     	<div class="header"><h1>Pull.</h1> </div>
             <div class="userlist">
-                <form name="seeuser" action="GENERATEFRIENDPROFILE" method="get"> 
-                <input type="hidden" name = "username" value="USRNAME"><!-- action, method--> 
+                <form name="seeuser" action="http://www.cs.mcgill.ca/~shossa15/cgi-bin/displayuser.py" method="get"> 
+                <input type="hidden" name = "username" value="%s"><!-- action, method--> 
                     
 <!--EVERYTHING ABOVE THIS IS STATIC CODE. DO NOT MODIFY IT. BELOW HERE IS WHERE THE WHILE LOOP GOES THAT GENERATES THE LIST OF FRIENDS. TAKE A LOOK AT MAKEFRIENDS.PY FOR AN IDEA OF WHAT TO DO.-->
 
 <!-- Each iteration of the loop should add to the code something like this: 
 
-    <div class="check"><input type="radio" name="%s" value=""></div>
+    <div class="check"><input type="radio" name="friend" value="%s"></div>
     <div class="username"><h2>%s</h2></div> 
     
 
-Each %s (same value) will be filled in by going through each of the current user's friends (in a while loop). The current user's username should be passed to seefriends as a hidden field from the time that "SEE A FRIEND" in the top menu was clicked, as this launches javascript and submits a form with the username in a hidden field. 
+Each %s will be filled in by going through each of the current user's friends (in a while loop). The current user's username should be passed to seefriends as a hidden field from the time that "SEE A FRIEND" in the top menu was clicked, as this launches javascript and submits a form with the username in a hidden field. 
 
-Once the form is completed, it will return the form url with ?[FRIENDUSERNAME]=, so it's incredibly easy to parse -- we only take one input.-->
+Once the form is completed, it will return the form url with ?friend=[FRIENDUSERNAME], so it's incredibly easy to parse -- we only take one input.-->
       
 <!--EVERYTHING BELOW THIS IS STATIC CODE. DO NOT MODIFY IT.-->
                     
@@ -38,11 +38,11 @@ Once the form is completed, it will return the form url with ?[FRIENDUSERNAME]=,
                 </form>     
             </div>
 
-    <form name="makefriend" action="MAKEFRIENDURL" method="get">
+    <form name="makefriend" action="http://www.cs.mcgill.ca/~shossa15/cgi-bin/makefriends.py" method="get">
     <input type="hidden" name = "username" value="%s">
     </form>
 
-    <form name="seefriend" action="www.cs.mcgill.ca/~ycukra/cgi-bin/seefriends.cgi" method="get">
+    <form name="seefriend" action="" method="get">
         <input type="hidden" name = "username" value="%s">
     </form>
     
