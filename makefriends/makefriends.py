@@ -1,6 +1,7 @@
 #!/usr/bin/python 
 
 import urllib2 
+import cgi 
 
 try: 
 	USERS = urllib2.urlopen("http://www.cs.mcgill.ca/~ycukra/cgi-bin/users.txt")
@@ -10,6 +11,10 @@ except IOError:
 
 else: 
 	pass
+
+form=cgi.FieldStorage()
+# get the username from the hidden field that makefriends will receive
+usrname=form.getvalue("username")
 
 # now initialize the html code 
 html_code=""" 
@@ -33,7 +38,8 @@ html_code="""
     	<div class="header"><h1>Connect.</h1> </div>
     	<div class="userlist">
     		<form name="checkusers" action="test.cgi" method="post"> <!-- action, method--> 
-"""
+    		<input type="hidden" name="username" value="%s">
+""" % usrname
 
 currentuser=USERS.readline() # get username 
 
@@ -72,7 +78,7 @@ html_code += """
 		</div>
 	</div>
 
-    <form name="makefriend" action="MAKEFRIENDURL" method="get">
+    <form name="makefriend" action="http://cs.mcgill.ca/~shossa15/cgi-bin/makefriends.py" method="get">
         <input type="hidden" name = "username" value="%s">
     </form>
 
