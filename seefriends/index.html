@@ -1,6 +1,6 @@
 <html>
 	<head>
-		<link rel="stylesheet" href="../dashboard.css">
+		<link rel="stylesheet" href="./seefriends.css">
 		<title>PluggedIn - dashboard</title>
 	</head>
 
@@ -12,18 +12,41 @@
 	        <div class="logout"><a href="http://www.cs.mcgill.ca/~ycukra/PluggedIn/home/">Logout</a></div>
         </div>
     
-        
+        <div class="content">
+    	<div class="header"><h1>Pull.</h1> </div>
+            <div class="userlist">
+                <form name="seeuser" action="GENERATEFRIENDPROFILE" method="get"> <!-- action, method--> 
+                    
+<!--EVERYTHING ABOVE THIS IS STATIC CODE. DO NOT MODIFY IT. BELOW HERE IS WHERE THE WHILE LOOP GOES THAT GENERATES THE LIST OF FRIENDS. TAKE A LOOK AT MAKEFRIENDS.PY FOR AN IDEA OF WHAT TO DO.-->
+
+<!-- Each iteration of the loop should add to the code something like this: 
+
+    <div class="check"><input type="radio" name="%s" value=""></div>
+    <div class="username"><h2>%s</h2></div> 
+    
+
+Each %s (same value) will be filled in by going through each of the current user's friends (in a while loop). The current user's username should be passed to seefriends as a hidden field from the time that "SEE A FRIEND" in the top menu was clicked, as this launches javascript and submits a form with the username in a hidden field. 
+
+Once the form is completed, it will return the form url with ?[FRIENDUSERNAME]=, so it's incredibly easy to parse -- we only take one input.-->
+      
+<!--EVERYTHING BELOW THIS IS STATIC CODE. DO NOT MODIFY IT.-->
+                    
+                  <div class="submit"> 
+                        <button type="submit" value=" "/> 
+                    </div>
+                </form>     
+            </div>
         
         <form name="makefriend" action="MAKEFRIENDURL" method="get">
-            <input type="hidden" name = "username" value="%s">
+            <input type="hidden" name = "username" value="USRNAME">
         </form>
 
         <form name="seefriend" action="SEEFRIENDURL" method="get">
-            <input type="hidden" name = "username" value="%s">
+            <input type="hidden" name = "username" value="USRNAME">
         </form>
 
         <form name="statusupdate" action="DASHSCRIPT" method="get">
-            <input type="hidden" name = "username" value="%s">
+            <input type="hidden" name = "username" value="USRNAME">
         </form>
 
         <script>
@@ -39,5 +62,4 @@
                 document.forms["seefriend"].submit();
             }
         </script>		
-    </body>
     </body>

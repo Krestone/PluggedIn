@@ -135,7 +135,7 @@ h3 {
 }
 
 button[type=submit]{
-    background-image:url(plug.png);
+    background-image:url(http://cs.mcgill.ca/~ycukra/cgi-bin/plug.png);
     background-color: transparent; 
     height:70px; 
     width:70px; 
@@ -154,7 +154,7 @@ button[type=submit]{
 }
 
 button[type=submit]:hover {
-    background-image: url(plughover.png);
+    background-image: url(http://cs.mcgill.ca/~ycukra/cgi-bin/plughover.png);
 }
 
 

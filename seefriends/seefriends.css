@@ -7,10 +7,86 @@ a:hover {
     color:#a02;
 }
 
+h1 {
+    font-weight: 800;
+    font-size: 300%;
+    text-transform: none;
+    color:#ffffff; 
+}
+
+h2 {
+    color:#ffffff; 
+    font-family: helvetica; 
+    font-weight: 400;
+    font-size: 16px; 
+    text-transform: uppercase; 
+}
+
+h3 {
+    color:#ffffff; 
+    font-family: helvetica; 
+    font-weight:100;
+    font-size: 18px; 
+    text-align: right; 
+    line-height: 30px; 
+}
+
 body {
     position:static; 
     background-color: #722726; 
     font-family: helvetica; 
+}
+
+.header {
+    position: relative;
+    left:20px; 
+    top:20px;
+    width:auto; 
+    height:auto;
+}
+
+.content {
+    position:fixed; 
+    top:50px;
+    border-style: dotted; 
+    border-color: #d6d4d4; 
+    width:90%; 
+    height:85%; 
+    left:5%; 
+    right:5%; 
+    min-width: 90%; 
+    min-height: 500px; 
+}
+
+.userlist {
+    position:absolute; 
+    width:80%;
+    left:10%; 
+    right:10%; 
+    height:70%; 
+    bottom:10%; 
+    top:20%; 
+    overflow:scroll;
+    min-height: 200px;
+}
+
+.username{
+    float:left;
+    width:80%; 
+    overflow: scroll; 
+    white-space: nowrap; 
+    height:90px;
+    max-height: 80px; 
+    padding-top: 10px; 
+}
+
+.check{
+    float:left; 
+    height:20px; 
+    width:4%; 
+    padding-left:4%; 
+    padding-right:4%; 
+    padding-top:20px; 
 }
 
 .topmenu {
@@ -41,4 +117,27 @@ body {
     z-index: -1; 
     width:100%; 
     min-width: 515px;  
+}
+
+button[type=submit]{
+    background-image:url(http://cs.mcgill.ca/~ycukra/cgi-bin/plug.png);
+    background-color: transparent; 
+    height:70px; 
+    width:70px; 
+    border:none; 
+    border-style: none; 
+    outline: none; 
+    position:fixed; 
+    top:0px; 
+    right:0px; 
+    margin-top:80px; 
+    margin-right: 80px; 
+    background-repeat: no-repeat;
+    border-style: none; 
+    background-position: 50% 50%;
+    background-size:60px 60px; 
+}
+
+button[type=submit]:hover {
+    background-image: url(http://cs.mcgill.ca/~ycukra/cgi-bin/plughover.png);
 }
