@@ -138,6 +138,6 @@ htmlTail = """
 			}
 		</script>	
 	</body>
-</html>""" % (usrname, usrname, usrname)
+</html>""" % (usrname, usrname)
 
 print htmlTail
