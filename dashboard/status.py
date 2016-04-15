@@ -1,7 +1,6 @@
 #!/usr/bin/python
 import os
 import cgi
-import sys
 
 
 #test = raw_input("status:")
@@ -46,6 +45,10 @@ if temp:
 	status_file = open("status.txt", "a")
 	status_file.write(statusline)
 	status_file.close()
+
+#create shell input and call dashboard
+command="./dashboard.py " + usrname
+os.system(command)
 
 
 
