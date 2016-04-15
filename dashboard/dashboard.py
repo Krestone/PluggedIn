@@ -119,11 +119,11 @@ while (j < len(usr)):
 htmlTail = """		
 		</div>
 
-		<form name="makefriend" action="http://www.cs.mcgill.ca/~ycukra/cgi-bin/seefriends.cgi" method="get">
+		<form name="makefriend" action="MAKEFRIENDURL" method="get">
 			<input type="hidden" name = "username" value="%s">
 		</form>
 
-		<form name="seefriend" action="SEEFRIENDURL" method="get">
+		<form name="seefriend" action="http://www.cs.mcgill.ca/~ycukra/cgi-bin/seefriends.cgi" method="get">
 			<input type="hidden" name = "username" value="%s">
 		</form>
 
