@@ -5,7 +5,6 @@ char *entries[1];//the username
 char *friends[500];//the friends
 int friendNumber=0;//number of friends
 int i=0;
-
 //takes input an already parsed section, eg username=bob
 int parser( char *s )
 /* Nested strtoks are a problem so this is our own parser*/
@@ -86,33 +85,73 @@ int main()
     }
   }
 
-  int index=0;
+
+  //proceed to printing the html page
+  //static html top
+  FILE *htmlTop=fopen("seefriendsTop.html", "rt");
   printf("%s%c%c\n","Content-Type:text/html",13,10);
-   printf=("<html>
-	    <head>
-		<link rel="stylesheet" href="./seefriends.css">
-		<title>PluggedIn - dashboard</title>
-	</head>
+  int c;
+      c=fgetc(htmlTop);
+      while(!feof(htmlTop) )
+      {
+       fputc(c, stdout);
+       c=fgetc(htmlTop);
+      }
 
-	<body>
-		<div class="topmenu">
-	        <a href=javascript:launchDash()>Dashboard</a> &emsp;&emsp;&emsp;&emsp;
-	        <a href="javascript:launchMake()">Make a friend</a> &emsp;&emsp;&emsp;&emsp;
-	        <a href="javascript:launchSee()">See a friend</a>  &emsp;&emsp;&emsp;&emsp; 
-	        <div class="logout"><a href="http://www.cs.mcgill.ca/~ycukra/PluggedIn/home/">Logout</a></div>
-        </div>
+    fclose(htmlTop);
+
+   //submit button cgi
+   printf("<form name=\"seeuser\" action=\"http://www.cs.mcgill.ca/~shossa15/cgi-bin/displayuser.py\" method=\"get\">"); 
+   printf("<input type=\"hidden\" name = \"username\" value=\"%s\">", entries[0]);
+   
+
+  //the dynamic part of the html that will be changed according to friends
+   
+   int index=0;
+   for(index; index<friendNumber; index++)
+   {
+    printf("<div class=\"check\"><input type=\"radio\" name=\"friend\" value=\"%s\"></div>", friends[index] );
+    printf("<div class=\"username\"><h2>%s</h2></div>", friends[index]);
+   }
+
+
+
+  //print static html bottom1
+  FILE *htmlBot1= fopen("seefriendsBottom1.html", "rt");
+      c=fgetc(htmlBot1);
+      while(!feof(htmlBot1) )
+      {
+       fputc(c, stdout);
+       c=fgetc(htmlBot1);
+      }
+
+    fclose(htmlBot1);
+
+  //print topmenu javascript and hiddenfield connections to other pages
+  
+  printf("<form name=\"makefriend\" action=\"http://www.cs.mcgill.ca/~shossa15/cgi-bin/makefriends.py\" method=\"get\">");
+  printf("<input type=\"hidden\" name = \"username\" value=\"%s\"> </form>" , entries[0]);
+
+   printf("<form name=\"seefriend\" action=\"\" method=\"get\">");
+   printf("<input type=\"hidden\" name = \"username\" value=\"%s\"></form>", entries[0]);
     
-        <div class="content">
-    	<div class="header"><h1>Pull.</h1> </div>
-            <div class="userlist">
-                <form name="seeuser" action="GENERATEFRIENDPROFILE" method="get"> 
-                <input type="hidden" name = "username" value="USRNAME"><!-- action, method-->")
+    printf("<form name=\"statusupdate\" action=\"http://www.cs.mcgill.ca/~ycukra/cgi-bin/status.py\" method=\"get\">");
+    printf("<input type=\"hidden\" name = \"update\" value=\"\"><input type=\"hidden\" name = \"username\" value=\"%s\"></form>", entries[0]);
 
-  for(index; index<friendNumber; index++)
-  {
-    printf("<body><p>%s</p></body>", friends[index]);
 
-  } 
+  //print static html bottom2
+  FILE *htmlBot2=fopen("seefriendsBottom2.html", "rt");
+      c=fgetc(htmlBot2);
+      while(!feof(htmlBot2) )
+      {
+       fputc(c, stdout);
+       c=fgetc(htmlBot2);
+      }
+
+    fclose(htmlBot2);
+
+   
+    
 
 
 
