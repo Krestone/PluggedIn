@@ -9,8 +9,19 @@ form=cgi.FieldStorage()
 
 usrname=form.getvalue("username")
 friend=form.getvalue("friend")
-
-
+#read the txt line by line into info[]
+with open("users.txt") as f:
+	info = f.readlines()
+	
+i=0
+#search through info for friend
+while (i < (len(info)-3)):
+	if (line.split(' ', 1)[0] == friend):
+		fullname = info[i+2]
+		jobdescription = info[i+3]
+		break
+	i = i + 1
+		
 
 htmlTop = """Content-type:text/html\n\n
 <html>
@@ -67,4 +78,4 @@ htmlTop+= """
 				}
 			</script>		
 	</body> 
-</html>""" % ()
+</html>""" % (friend, fullname, jobdescription, usrname, usrname, usrname)
