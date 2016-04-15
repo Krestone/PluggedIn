@@ -3,6 +3,9 @@
 import cgi
 import sys
 import re
+
+#stable version1.0
+
 #get username from c & store it to usrname
 usrname = sys.argv[1]
 
@@ -81,16 +84,16 @@ for line in status:
 
 #check the numer of status
 if len(relevantsta) >= 20:
-	num = 20
+	num = len(relevantsta) - 20
 elif len(relevantsta) < 20:
-	num = len(relevantsta)
+	num = 0
 
-i = num-1
+i = len(relevantsta)-1
 #initialize two list to store username and their status in parallel
 usr = []
 status = []
 #from bottom to top through the list
-while (i >= 0):
+while (i >= num):
 	#split the line 
 	splited = relevantsta[i].split(None, 1)
 	usr.append(splited[0])
