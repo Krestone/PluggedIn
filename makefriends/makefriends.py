@@ -11,7 +11,6 @@ except IOError:
 else: 
 	pass
 
-
 # now initialize the html code 
 html_code=""" 
 <html>
@@ -33,7 +32,7 @@ html_code="""
     <div class="content">
     	<div class="header"><h1>Connect.</h1> </div>
     	<div class="userlist">
-    		<form name="checkusers" action="" method="post"> <!-- action, method--> 
+    		<form name="checkusers" action="test.cgi" method="post"> <!-- action, method--> 
 """
 
 currentuser=USERS.readline() # get username 
@@ -62,10 +61,12 @@ while currentuser!="":
 
 USERS.close() # close the file 
 
+
+
 # finish HTML code 
 html_code += """	
 				<div class="submit"> 
-					<button type="submit" form="checkusers" value=" "/> 
+					<button type="submit" value=" "/> 
 				</div>
 			</form>
 		</div>
@@ -94,7 +95,7 @@ html_code += """
     </script>		
 </body>
 
-</html> """ % usrname, usrname
+</html> """ % (usrname, usrname)
 
 try: 
 	INDEX=open("index.html", "w")
