@@ -16,7 +16,7 @@ a:hover {
 h1 {
     font-weight: 800;
     font-size: 300%;
-    text-transform: none;
+    text-transform: uppercase;
     color:#ffffff; 
     position: absolute; 
     left:0px; 
@@ -45,10 +45,10 @@ h1 {
 
 .errormessage {
     position:absolute; 
-    height:50%; 
-    top:20%; 
-    bottom:20%; 
+    height:500px; 
+    top:100px; 
     width:60%; 
+    min-width: 500px; 
     left:20%; 
     right:20%; 
     border-style: dotted; 
@@ -60,13 +60,11 @@ h1 {
 
 .errorheading { 
     position:absolute; 
-    height:20%;  
-    width:60%;
-    left:20%; 
-    right:20%; 
+    height:100px; 
+    width:80%;
+    left:10%; 
+    right:10%; 
     top:10%; 
-    padding-top: 10%; 
-    padding:10px; 
     text-align: center; 
     border-width: 2px; 
     border-style: dotted; 
@@ -75,13 +73,14 @@ h1 {
 
 .errorbody {
     position:absolute;
-    top: 60%; 
-    width:60%; 
-    left:20%; 
-    right:20%; 
+    top: 40%; 
+    width:80%; 
+    height:auto; 
+    left:10%; 
+    right:10%; 
     font-size: 150%; 
     font-family: helvetica; 
     color:#ffffff; 
-    font-weight: 400; 
+    font-weight: 200; 
     text-align: justify; 
 }
