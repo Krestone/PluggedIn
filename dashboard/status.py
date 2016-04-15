@@ -24,23 +24,16 @@ print "<h2> %s </h2>" % usrname
 print "</body>"
 print "</html>"'''
 
-
-#write input to the txt file
-#temp_file.write(test)
-temp_file.write(statusupdate)
-
-#close file
-temp_file.close()
-
-
-
-#store lines in file to a list -> because the status is restricted to one line, if there's
-#more than one line, it's easier to get rid of it.
-with open("temp_file.txt") as f:
-	temp = f.readlines()
-
-#if input is not empty, store status 
-if temp:
+if ((not statusupdate.isspace()) and statusupdate):
+	#write input to the txt file
+	#temp_file.write(test)
+	temp_file.write(statusupdate)
+	#close file
+	temp_file.close()
+	#store lines in file to a list -> because the status is restricted to one line, if there's
+	#more than one line, it's easier to get rid of it.
+	with open("temp_file.txt") as f:
+		temp = f.readlines()
 	statusline = "\n" + usrname + " " + temp[0] 
 	status_file = open("status.txt", "a")
 	status_file.write(statusline)
