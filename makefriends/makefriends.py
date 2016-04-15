@@ -108,12 +108,8 @@ html_code += """
 
 </html> """ % (usrname, usrname, usrname)
 
-try: 
-	INDEX=open("index.html", "w")
-except IOError: 
-	print "Error writing to HTML file because I am stupid!!!!!!!"
-else: 
-	pass
+print (html_code)
 
-INDEX.write(html_code)
-INDEX.close()
+
+
+
