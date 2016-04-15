@@ -37,13 +37,13 @@ htmlForm = """
     			<button type="submit" value=" "/> 
     			<h2>COMMIT</h2>
 			</form>
-   		</div> \n""" % usrname
+   		</div> """ % usrname
 
 
 htmlUpdate = """<div class="dashspace">
         <div class="dashhead">
             <h1>UpToDate.</h1>
-        </div> \n"""
+        </div> """
 
 print htmlTop+htmlForm+htmlUpdate
 ########################################## END OF SHAM'S CODE 
