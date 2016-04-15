@@ -2,6 +2,7 @@
 
 import cgi
 import sys
+import re
 #get username from c & store it to usrname
 usrname = sys.argv[1]
 
@@ -53,57 +54,67 @@ html.close()
 ########################################## END OF SHAM'S CODE 
 
 
-htmlDefaultStatus = """<div class="friendupdate">
-            <div class="friendusername">SYSTEM</div>
-            <div class="friendstatus">No recent status from your friends. OMG your friends are so quiet. GO AND MAKE NEW FRIENDS!!!</div>            
-        </div> \n"""
+#open the friends.txt search for the line that contains username
+friends = open("friends.txt", "r")
+#initialize a list to store friends
+usrfriend = []
+for line in friends:
+	#if first word of the line == username, then store it to usrfriend
+	if line.split(' ', 1)[0] == usrname:
+		#split string into list
+		splitedline = line.split()
+		#store it to usrfriend
+		for user in splitedline:
+			usrfriend.append(user)
+		break
+		
+#print(usrfriend)
+		
+#open the status.txt
+status = open("status.txt", "r")
+#initialize a list to store relevant status
+relevantsta = []
+
+#search line by line to see the relevant status updated
+for line in status:
+	#if first word of the line == one of the friends, then store it to relevantsta
+	for friend in usrfriend:
+		if line.split(' ', 1)[0] == friend:
+			relevantsta.append(line)
+			
+#print(relevantsta)
+
+#check the numer of status
+if len(relevantsta) >= 20:
+	num = 20
+elif len(relevantsta) < 20:
+	num = len(relevantsta)
+
+i = num-1
+#initialize two list to store username and their status in parallel
+usr = []
+status = []
+#from bottom to top through the list
+while (i >= 0):
+	#split the line 
+	splited = relevantsta[i].split(None, 1)
+	usr.append(splited[0])
+	status.append(splited[1])	
+	i = i-1
+
+#print usr
+#print status
 
 html = open("index.html","a")
-  
-def update( status_list, i ):
-	temp = status_list[i]
+numsta = len(usr)
+j=0
+#print the html code
+while (j < len(usr)):
 	html.write("""<div class="friendupdate">
-		<div class="friendusername">""")
-	#split the first word, i.e. username, from status, and store it to splited
-	splited = temp.split(None, 1)
-    #username: first index of splited
-	html.write(splited[0])
-	html.write("""</div> <div class="friendstatus">""")
-    #status: second part of splited = status
-	html.write(splited[1])
-	html.write("""</div>
-		</div> \n""")
-
-#main program       		
-if __name__ == "__main__":
-	try:
-		#open the html files
-	    html = open("index.html","a")
-
-	except:
-		cgi.print_exception()
-
-	#open the status.txt
-	with open("status.txt") as f:
-		status_list = f.readlines()
-
-	if len(status_list) != 0:
-		if len(status_list) >= 20:
-			num = 20
-		elif len(status_list) < 20:
-			num = len(status_list)
-		i=num
-		while (i != 0):
-			update(status_list, i)
-			i=i-1      		
-	#if there's no recent status, then just show default status
-	else:
-		html.write(htmlDefaultStatus)
-		
-	#close the file
-	f.close()
-	html.close()	
-
+            <div class="friendusername">%s</div>
+            <div class="friendstatus">%s</div>            
+        </div> \n"""% (usr[j], status[j]))
+	j = j+1
 	
 	
 ################################################# END OF QI'S CODE 	
