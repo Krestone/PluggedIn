@@ -119,7 +119,7 @@ while (j < len(usr)):
 htmlTail = """		
 		</div>
 
-		<form name="makefriend" action="MAKEFRIENDURL" method="get">
+		<form name="makefriend" action="http://cs.mcgill.ca/~shossa15/cgi-bin/makefriends.py" method="get">
 			<input type="hidden" name = "username" value="%s">
 		</form>
 
