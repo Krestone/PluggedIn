@@ -1,9 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-char *entries[1];
-char *friends[500];
-int friendNumber=0;
+char *entries[1];//the username
+char *friends[500];//the friends
+int friendNumber=0;//number of friends
 int i=0;
 
 //takes input an already parsed section, eg username=bob

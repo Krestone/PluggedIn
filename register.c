@@ -44,7 +44,8 @@ int parser( char *s )
 				break;
 			case '+':
 				*s = ' ';
-				break;
+				 unique=0;
+                                 break;
            }
           
         }
@@ -137,31 +138,34 @@ int main(void)
   //if succesfull register, generate link back to login page
   if(unique)
   {
-    printf("%s%c%c\n","Content-Type:text/html",13,10);
-    printf("<html>");
-    printf("<head><title>ERROR</title></head>");
-    printf("<P>REGISTER SUCESSFULL put 2 links here");
-    printf("<P>Username is %s", entries[0]);
-    printf("<P>Password is %s", entries[1]);
-    printf("<P>Full Name is %s", entries[2]);
-    printf("<P>Job DEscription is %s", entries[3]);
-  
+     FILE *suc=fopen("registerSucess.html", "rt");
+     printf("%s%c%c\n","Content-Type:text/html",13,10);
+     int c;
+      c=fgetc(suc);
+      while(!feof(suc) )
+      {
+       fputc(c, stdout);
+       c=fgetc(suc);
+      }
+
     fclose(out);
+    fclose(suc);
     return 0;
   }
 
    //if problem
-    printf("%s%c%c\n","Content-Type:text/html",13,10);
-    printf("<html>");
-    printf("<head><title>ERROR</title></head>");
-    printf("<P>ERROR 666 EITHER YOUR USERNAME IS TAKEN OR YOU LEFT A LINE EMPTY. DONT DO THAT (also put 2 links here) ");
-    printf("<P>Either missing field or non unique login credentials");
-    printf("<P>Password is %s", entries[0]);
-    printf("<P>Password is %s", entries[1]);
-    printf("<P>Full Name is %s", entries[2]);
-    printf("<P>Job DEscription is %s", entries[3]);
-
+   FILE *error=fopen("registerError.html", "rt");
+   printf("%s%c%c\n","Content-Type:text/html",13,10); 
+   int c;
+      c=fgetc(error);
+      while(!feof(error) )
+      {
+       fputc(c, stdout);
+       c=fgetc(error);
+      }
+    
     fclose(out);
+    fclose(error);
     return 1;
 
 
