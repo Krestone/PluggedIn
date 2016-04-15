@@ -6,8 +6,6 @@ import re
 #get username from c & store it to usrname
 usrname = sys.argv[1]
 
-html = open("index.html","w")
-
 #store html code to Strings
 htmlTop = """Content-type:text/html\n\n
 <html>
@@ -23,14 +21,13 @@ htmlTop = """Content-type:text/html\n\n
 	        <a href="javascript:launchSee()">See a friend</a>  &emsp;&emsp;&emsp;&emsp; 
 	        <div class="logout">
 	        <a href="http://www.cs.mcgill.ca/~ycukra/PluggedIn/home/">Logout</a></div>
-    </div>"""
-html.write(htmlTop)
-html.close()
+    </div>
+"""
+
 
 
 
 #form to fill out when update the status
-html = open("index.html","a")
 htmlForm = """
 		<div class="updatespace">
     		<h1>Update.</h1>
@@ -41,21 +38,19 @@ htmlForm = """
     			<h2>COMMIT</h2>
 			</form>
    		</div> \n""" % usrname
-html.write(htmlForm)
-html.close()
 
-html = open("index.html","a") 
+
 htmlUpdate = """<div class="dashspace">
         <div class="dashhead">
             <h1>UpToDate.</h1>
         </div> \n"""
-html.write(htmlUpdate)
-html.close()
+
+print htmlTop+htmlForm+htmlUpdate
 ########################################## END OF SHAM'S CODE 
 
 
 #open the friends.txt search for the line that contains username
-friends = open("friends.txt", "r")
+friends = open("users.txt", "r")
 #initialize a list to store friends
 usrfriend = []
 for line in friends:
@@ -105,21 +100,19 @@ while (i >= 0):
 #print usr
 #print status
 
-html = open("index.html","a")
 numsta = len(usr)
 j=0
 #print the html code
 while (j < len(usr)):
-	html.write("""<div class="friendupdate">
+	print """<div class="friendupdate">
             <div class="friendusername">%s</div>
             <div class="friendstatus">%s</div>            
-        </div> \n"""% (usr[j], status[j]))
+        </div> \n"""% (usr[j], status[j])
 	j = j+1
 	
 	
 ################################################# END OF QI'S CODE 	
 
-html=open("index.html", "a")
 htmlTail = """		
 		</div>
 
@@ -146,8 +139,5 @@ htmlTail = """
 		</script>	
 	</body>
 </html>""" % usrname, usrname
-html.write(htmlTail)
-html.close()
 
-
-
+print htmlTail
