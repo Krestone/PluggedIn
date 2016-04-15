@@ -3,6 +3,9 @@
 import cgi
 import sys
 import re
+
+#stable version1.0
+
 #get username from c & store it to usrname
 usrname = sys.argv[1]
 
