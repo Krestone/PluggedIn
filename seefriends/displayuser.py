@@ -8,6 +8,9 @@ form=cgi.FieldStorage()
 # get the username from the hidden field
 
 usrname=form.getvalue("username")
+friend=form.getvalue("friend")
+
+
 
 htmlTop = """Content-type:text/html\n\n
 <html>
@@ -29,25 +32,25 @@ htmlTop = """Content-type:text/html\n\n
 
 htmlTop+= """	    
 	    <div class="content">
-	        <div class="header"><h1><i>import</i> </br> &emsp;&emsp;%s.info</h1></div>
+	        <div class="header"><h1><i>import</i> </br> &emsp;&emsp;%s.info</h1></div> <!-- friend's username -->
 	        <div class="userinfo">FULL_NAME: </br>
-	        &emsp;&emsp; %s  </br></br></br>
+	        &emsp;&emsp; %s  </br></br></br> <!-- friend's full name --> 
 	    JOB_DESCRIPTION: </br>
-	    &emsp;&emsp;%s
+	    &emsp;&emsp;%s <!--friend's job description --> 
 	        </div>
 	    </div>
 	    
 	    <form name="statusupdate" action="http://www.cs.mcgill.ca/~ycukra/cgi-bin/status.py" method="get">
 	        <input type="hidden" name = "update" value="">
-	        <input type="hidden" name = "username" value="%s">
+	        <input type="hidden" name = "username" value="%s"> <!-- logged in user's username -->
 	    </form>
 
 	    <form name="makefriend" action="http://cs.mcgill.ca/~shossa15/cgi-bin/makefriends.py" method="get">
-				<input type="hidden" name = "username" value="%s">
+				<input type="hidden" name = "username" value="%s"> <!-- logged in user's username --> 
 			</form>
 
 			<form name="seefriend" action="http://www.cs.mcgill.ca/~ycukra/cgi-bin/seefriends.cgi" method="get">
-				<input type="hidden" name = "username" value="%s">
+				<input type="hidden" name = "username" value="%s"> <!-- logged in user's username --> 
 			</form>
 
 			<script>
