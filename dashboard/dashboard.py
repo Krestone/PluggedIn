@@ -119,7 +119,7 @@ htmlTail = """
 		<form name="dashboard" action="http://www.cs.mcgill.ca/~ycukra/cgi-bin/status.py" method="get">
 			<input type="hidden" name = "username" value ="%s">		
 		</form>
-		<form name="makefriend" action="MAKEFRIENDURL" method="get">
+		<form name="makefriend" action="http://www.cs.mcgill.ca/~ycukra/cgi-bin/seefriends.cgi" method="get">
 			<input type="hidden" name = "username" value="%s">
 		</form>
 
