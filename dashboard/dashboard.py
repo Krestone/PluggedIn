@@ -116,6 +116,9 @@ while (j < len(usr)):
 htmlTail = """		
 		</div>
 
+		<form name="dashboard" action="http://www.cs.mcgill.ca/~ycukra/cgi-bin/status.py" method="get">
+			<input type="hidden" name = "username" value ="%s">		
+		
 		<form name="makefriend" action="MAKEFRIENDURL" method="get">
 			<input type="hidden" name = "username" value="%s">
 		</form>
@@ -126,7 +129,7 @@ htmlTail = """
 
 		<script>
 			function launchDash() {
-				document.forms["statusupdate"].submit();
+				document.forms["dashboard"].submit();
 			}
 
 			function launchMake() {
@@ -138,6 +141,6 @@ htmlTail = """
 			}
 		</script>	
 	</body>
-</html>""" % usrname, usrname
+</html>""" % (usrname, usrname, usrname)
 
 print htmlTail
