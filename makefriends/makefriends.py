@@ -49,7 +49,7 @@ firstline=USERS.readline() # get username
 # get the first line so we can begin looping 
 currentuser = firstline.split(' ', 1)[0]
 
-i=0
+
 # counter for user variables
 
 while currentuser!="":
@@ -61,8 +61,8 @@ while currentuser!="":
 
 	# create checkbox 
 	htmlTop += ("""
-		<div class="check"><input type="checkbox" name="user%d" value="%s"></div>
-		""" % (i, currentuser)) 
+		<div class="check"><input type="checkbox" name="%s" value="on"></div>
+		""" % (currentuser) 
 	htmlTop += ("""
 		<div class="username"><h2>%s</h2></div> 
 		""" % currentuser)
@@ -74,7 +74,7 @@ while currentuser!="":
 
 		""")
 
-	i++
+
 	# increment counter 
 
 	currentuser=USERS.readline().split(' ', 1)[0] # now, get next username 
