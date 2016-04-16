@@ -174,14 +174,18 @@ int main(void)
   else
   {  
    //if failure  
-   printf("%s%c%c\n","Content-Type:text/html",13,10);
-   printf("<html>");
-
-   printf("<head><title>ERROR INVALID LOGIN!!!!!!! SHAM, QI DONT BE LAZY CREATE ACCOUNTS</title></head>");
-   printf("<body><p>ERROR INVALID LOGIN!!!!!!! SHAM, QI DONT BE LAZY CREATE ACCOUNTS</p></body>");
-   printf("<P>HERE PUT LINK 1 TO HOME PAGE");
-   printf("<P>HERE PUT LINK 2 BACK TO LOGIN PAGE");
-   return 1;
+   
+   FILE *error=fopen("loginError.html", "rt");
+   int c;
+      c=fgetc(error);
+      printf("%s%c%c\n","Content-Type:text/html",13,10);
+      while(!feof(error) )
+      {
+       fputc(c, stdout);
+       c=fgetc(error);
+      }
+     fclose(error);  
+     return 1;
   }
 
    

@@ -44,7 +44,7 @@ int parser( char *s )
 				break;
 			case '+':
 				*s = ' ';
-				 unique=0;
+				 if(i==0 || i==1 ) unique=0;
                                  break;
            }
           
