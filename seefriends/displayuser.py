@@ -26,7 +26,7 @@ while (i < (len(info)-3)):
 	i = i + 1
 		
 
-htmlcode="""Content-type:text/html\n\n
+htmlcode="""Content-Type:text/html\n\n
 <html>
 	<head>
 	    <link rel="stylesheet" href="friendprofile.css">

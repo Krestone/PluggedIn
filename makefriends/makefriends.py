@@ -44,9 +44,13 @@ else:
 	pass
 
 
-currentuser=USERS.readline() # get username 
+firstline=USERS.readline() # get username 
+
+# get the first line so we can begin looping 
+currentuser = firstline.split(' ', 1)[0]
 
 while currentuser!="":
+	currentuser=currentuser.replace("\n","")
 
 	USERS.readline() # next line will be password, which we don't need 
 	currentfullname=USERS.readline()
@@ -66,7 +70,7 @@ while currentuser!="":
 	htmlTop += (""" </br>
 
 		""")
-	currentuser=USERS.readline() # now, get next username 
+	currentuser=USERS.readline().split(' ', 1)[0] # now, get next username 
 
 USERS.close() # close the file 
 
