@@ -1,7 +1,8 @@
 #!/usr/bin/python
 
-import cgi 
+#http://cs.mcgill.ca/~shossa15/cgi-bin/makefriends.py?username=sham&Hello+sham+python+Wildcookie%0D%0A=&sham+Hello+python%0D%0A=&test%0D%0A=
 
+import cgi 
 form=cgi.FieldStorage()
 
-print "FUCK MY LIIIIIIIIIIFEEEEEEEEEEEE"
+usrname=form.getvalue(username)
