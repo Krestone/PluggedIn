@@ -22,28 +22,30 @@ else:
 	pass
 
 
-currentline=USERS.readline() # get username of first line 
-currentuser=currentline.split(' ', 1)[0]
-currentuser=currentuser.replace("\n","")
-# we want to get rid of carriage returns 
-
+lines=USERS.readlines() 
+# lines now in a list 
 # seeking user 
+
+i=0
+currentuser=lines[0].split(' ',1)[0]
+# just want the first word of the first line 
 while currentuser!=usrname:
-	USERS.readline() 
-	USERS.readline() 
-	USERS.readline() 
-	currentline=USERS.readline() # skip four lines then read 
-	currentuser=currentline.split(' ',1)[0]  
-	currentuser=currentuser.replace("\n","")
-	# keep track of the line, and the current user. 
+# while we haven't found the specific user 
+	i = i+4
+	# things are separated by full name, jobs, etc. 
+	currentuser=lines[i].split(' ',1)[0]
+	# update the line we are looking at
+
 
 # now we have found the user we want to add friends for; whole line 
-# is stored in currentline. 
+# is in lines[i]. 
 
 # we get a bunch of people who may or may not be already on the list; 
 # we don't add duplicates though
 
+modify=lines[i]
+# this is the string we'll be checking against 
 
-if currentuser:
+
 	
 
