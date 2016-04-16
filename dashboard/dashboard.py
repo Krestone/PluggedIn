@@ -53,22 +53,18 @@ print htmlTop+htmlForm+htmlUpdate
 
 
 #open the friends.txt search for the line that contains username
-with open("users.txt") as f:
-	friends = f.readlines()
+friends = open("users.txt", "r")
 #initialize a list to store friends
 usrfriend = []
-c=0
-while (c<len(friends)):
+for line in friends:
 	#if first word of the line == username, then store it to usrfriend
-	if friends[i].split(' ', 1)[0] == usrname:
+	if line.split(' ', 1)[0] == usrname:
 		#split string into list
-		splitedline = friends[i].split()
+		splitedline = line.split()
 		#store it to usrfriend
 		for user in splitedline:
 			usrfriend.append(user)
 		break
-	#skip 3 lines
-	c = c + 4
 		
 #print(usrfriend)
 		
