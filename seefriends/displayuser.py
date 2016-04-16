@@ -3,14 +3,17 @@
 import cgi 
 import sys 
 import re 
+import urllib2
 
+data = urllib2.urlopen(target_url) 
+# opens like a file type object 
 form=cgi.FieldStorage()
 # get the username from the hidden field
 
 usrname=form.getvalue("username")
 friend=form.getvalue("friend")
 #read the txt line by line into info[]
-with open("users.txt") as f:
+with open(data) as f:
 	info = f.readlines()
 	
 i=0
@@ -23,11 +26,11 @@ while (i < (len(info)-3)):
 	i = i + 1
 		
 
-htmlTop = """Content-type:text/html\n\n
+htmlcode="""Content-type:text/html\n\n
 <html>
 	<head>
 	    <link rel="stylesheet" href="friendprofile.css">
-	    <title>PluggedIn - make friends</title>
+	    <title>PluggedIn - display user</title>
 	</head>
 	    
 	<body> 
@@ -37,16 +40,17 @@ htmlTop = """Content-type:text/html\n\n
 			<a href="javascript:launchMake()">Make a friend</a> &emsp;&emsp;&emsp;&emsp;
 			<a href="javascript:launchSee()">See a friend</a>  &emsp;&emsp;&emsp;&emsp; 
 			<div class="logout">
-				<a href="http://www.cs.mcgill.ca/~ycukra/PluggedIn/home/">Logout</a></div>
-	    </div> """
+			<a href="http://www.cs.mcgill.ca/~ycukra/PluggedIn/home/">Logout</a></div>
+	    </div> 
+	"""
 
 
-htmlTop+= """	    
+htmlcode2="""	    
 	    <div class="content">
-	        <div class="header"><h1><i>import</i> </br> &emsp;&emsp;%s.info</h1></div> <!-- friend's username -->
-	        <div class="userinfo">FULL_NAME: </br>
+	        <div class="header"><h1><i>import</i> </br> &emsp;&emsp; %s.info</h1></div> <!-- friend's username -->
+	        <div class="userinfo">FULLNAME: </br>
 	        &emsp;&emsp; %s  </br></br></br> <!-- friend's full name --> 
-	    JOB_DESCRIPTION: </br>
+	    JOBDESCRIPTION: </br>
 	    &emsp;&emsp;%s <!--friend's job description --> 
 	        </div>
 	    </div>
@@ -79,3 +83,6 @@ htmlTop+= """
 			</script>		
 	</body> 
 </html>""" % (friend, fullname, jobdescription, usrname, usrname, usrname)
+
+print htmlcode+htmlcode2
+

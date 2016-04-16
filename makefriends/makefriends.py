@@ -54,7 +54,7 @@ while currentuser!="":
 
 	# create checkbox 
 	htmlTop += ("""
-		<div class="check"><input type="checkbox" name="%s" value=""></div>
+		<div class="check"><input type="checkbox" name="%s" value="on"></div>
 		""" % currentuser) 
 	htmlTop += ("""
 		<div class="username"><h2>%s</h2></div> 
