@@ -62,7 +62,7 @@ usrfriend = []
 c=0
 while (c<len(friends)):
 	#if first word of the line == username, then store it to usrfriend
-	if friends[i].split(' ', 1)[0] == usrname:
+	if friends[c].split(' ', 1)[0] == usrname:
 		#split string into list
 		splitedline = friends[i].split()
 		#store it to usrfriend
