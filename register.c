@@ -101,7 +101,11 @@ int main(void)
   char field[50];
   fgets( field, 50, out);
   field[strlen(field) - 1] = '\0'; //removes/n
-
+  
+  char *usrname;i  //this part gets only the first word of the field, which is the username
+  usrname= strtok(field," ");
+  strcpy(field, usrname);
+  
   while(!feof(out) ) 
   {
     if(strcmp(entries[0], field) == 0)//if theyre same
