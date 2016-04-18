@@ -45,13 +45,13 @@ h1 {
 }
 
 .errormessage {
-    position:absolute; 
-    height:50%; 
+    position:relative; 
+    height:300px; 
     top:20%; 
     bottom:20%; 
-    width:60%; 
-    left:20%; 
-    right:20%; 
+    width:500px; 
+    margin-left:auto; 
+    margin-right:auto; 
     border-style: dotted; 
     border-color: #d6d4d4;
     font-family: helvetica; 
@@ -62,10 +62,13 @@ h1 {
 .errorheading { 
     position:absolute; 
     height:20%;  
-    width:60%;
-    left:20%; 
-    right:20%; 
+    width:400px;
+    left:40px; 
+    right:10%; 
     top:10%; 
+    padding:none;
+    min-height:125px;
+    min-width:300px;
     padding-top: 10%; 
     padding:10px; 
     text-align: center; 
@@ -76,13 +79,12 @@ h1 {
 
 .errorbody {
     position:absolute;
-    top: 60%; 
-    width:60%; 
-    left:20%; 
-    right:20%; 
+    top: 200px; 
+    width:400px; 
+    left:50px; 
     font-size: 150%; 
     font-family: helvetica; 
     color:#ffffff; 
-    font-weight: 400; 
-    text-align: justify; 
+    font-weight: 100; 
+    text-align: left; 
 }
