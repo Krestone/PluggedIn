@@ -1,17 +1,15 @@
-#!/usr/bin/python 
+#!/usr/bin/python
 
-import urllib2 
-import cgi 
-import sys 
-import re 
+import urllib2
+import cgi
+import sys
+import re
 
 form=cgi.FieldStorage()
-# get the username from the hidden field that makefriends will receive
 usrname=form.getvalue("username")
 
-# now initialize the html code 
-htmlTop="""Content-type:text/html\n\n
-<html>
+htmlTop="""Content-type:text/html\n\n"""
+htmlTop+="""<html>
 	<head>
 	    <link rel="stylesheet" href="./makefriends.css">
 	    <title>PluggedIn - make friends</title>
@@ -32,10 +30,8 @@ htmlTop="""Content-type:text/html\n\n
     		<form name="checkusers" action="http://cs.mcgill.ca/~shossa15/cgi-bin/makefriends.py" method="get"> <!-- action, method--> 
     		<input type="hidden" name="username" value="%s">
 """ % usrname
-
-
 try: 
-	USERS = urllib2.urlopen("http://www.cs.mcgill.ca/~ycukra/cgi-bin/users.txt")
+	USERS = urllib2.urlopen("http://www.cs.mcgill.ca/~ycukra/cgi-bin/users.txt","r")
 
 except IOError: 
 	print "Error opening user database! WHERE DID U PUT THE FILE"
@@ -43,45 +39,22 @@ except IOError:
 else: 
 	pass
 
+allusers=USERS.readlines()
+numusers=len(allusers)/4
 
-firstline=USERS.readline() # get username 
+usrindex=0 # to keep track of users
 
-# get the first line so we can begin looping 
-currentuser = firstline.split(' ', 1)[0]
-
-
-# counter for user variables
-
-while currentuser!="":
+for i in range(0,numusers):
+	# get the username
+	currentuser=allusers[usrindex].split(' ', 1)[0]
 	currentuser=currentuser.replace("\n","")
-
-	USERS.readline() # next line will be password, which we don't need 
-	currentfullname=USERS.readline()
-	USERS.readline() # next line will be job desc, which we don't need 
-
-	# create checkbox 
-	htmlTop += ("""
-		<div class="check"><input type="checkbox" name="%s" value="on"></div>
-		""" % (currentuser) 
-	htmlTop += ("""
-		<div class="username"><h2>%s</h2></div> 
-		""" % currentuser)
-	# append full name 
-	htmlTop += ("""<div class="fullname"><h3>%s</h3></div>
-		""" % currentfullname) 
-	# line break 
-	htmlTop += (""" </br>
-
-		""")
-
-
-	# increment counter 
-
-	currentuser=USERS.readline().split(' ', 1)[0] # now, get next username 
-
-USERS.close() # close the file 
-
-# finish HTML code 
+	usrindex=usrindex+2 # get the full name
+	currentfullname=allusers[usrindex]
+	htmlTop+="""<div class="check"><input type="checkbox" name="%d" value="%s"></div>""" % (i,currentuser)
+	htmlTop+="""<div class="username"><h2>%s</h2></div>""" % currentuser 
+	htmlTop+="""<div class="fullname"><h3>%s</h3></div></br>""" % currentfullname
+	usrindex=usrindex+2 # moving pointer to next user
+	
 htmlTop+= """	
 				<div class="submit"> 
 					<button type="submit" value=" "/> 
@@ -121,7 +94,3 @@ htmlTop+= """
 </html> """ % (usrname, usrname, usrname)
 
 print (htmlTop)
-
-
-
-
