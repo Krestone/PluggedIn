@@ -98,14 +98,13 @@ int main(void)
   FILE *out=fopen("users.txt", "a+");
   
   //check if unique
-  char field[50];
-  fgets( field, 50, out);
+  char field[5000];
+  fgets( field, 5000, out);
   field[strlen(field) - 1] = '\0'; //removes/n
   
   char *usrname;  //this part gets only the first word of the field, which is the username
   usrname=field;
   strtok(usrname , " " );
-  
   while(!feof(out) ) 
   {
     if(strcmp(entries[0], field) == 0)//if theyre same
@@ -117,8 +116,10 @@ int main(void)
     int c1=0;
     for(c1; c1<4; c1++)
     {  
-      fgets( field, 50, out);
-      field[strlen(field) - 1] = '\0'; 
+      fgets( field, 5000, out);
+      field[strlen(field) - 1] = '\0';
+      usrname=field;
+      strtok(usrname, " "); 
     }
     //we skip 4 lines to the username
 

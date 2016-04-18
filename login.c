@@ -120,8 +120,8 @@ int main(void)
 
  }
  
-  char field[50];
-  fgets( field, 50, validate);
+  char field[5000];
+  fgets( field, 5000, validate);
   field[strlen(field) - 1] = '\0'; 
   char *usr;
   usr=field; 
@@ -131,7 +131,7 @@ int main(void)
   {
     if(strcmp(entries[0], usr) == 0)//if user name is valid
     {
-      fgets( field, 50, validate);
+      fgets( field, 5000, validate);
       field[strlen(field) - 1] = '\0';
       if( strcmp(entries[1], field) == 0)//if password is valid
       {
@@ -147,7 +147,7 @@ int main(void)
     int c1=0;
     for(c1; c1<4; c1++)
     {  
-      fgets( field, 50, validate);
+      fgets( field, 5000, validate);
       field[strlen(field) - 1] = '\0';
       usr=field; 
       strtok(usr," "); 
@@ -174,14 +174,18 @@ int main(void)
   else
   {  
    //if failure  
-   printf("%s%c%c\n","Content-Type:text/html",13,10);
-   printf("<html>");
+   FILE *error=fopen("loginError.html", "rt");
+   int c;
+      c=fgetc(error);
+      printf("%s%c%c\n","Content-Type:text/html",13,10);
+      while(!feof(error) )
+      {
+       fputc(c, stdout);
+       c=fgetc(error);
+      }
+     fclose(error);  
+     return 1;
 
-   printf("<head><title>ERROR INVALID LOGIN!!!!!!! SHAM, QI DONT BE LAZY CREATE ACCOUNTS</title></head>");
-   printf("<body><p>ERROR INVALID LOGIN!!!!!!! SHAM, QI DONT BE LAZY CREATE ACCOUNTS</p></body>");
-   printf("<P>HERE PUT LINK 1 TO HOME PAGE");
-   printf("<P>HERE PUT LINK 2 BACK TO LOGIN PAGE");
-   return 1;
   }
 
    
