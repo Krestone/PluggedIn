@@ -1,0 +1,45 @@
+<html>
+	<head>
+		<link rel="stylesheet" href="./dashboard.css">
+		<title>PluggedIn - dashboard</title>
+	</head>
+
+	<body>
+		<div class="topmenu">
+	        <a href=javascript:launchDash()>Dashboard</a> &emsp;&emsp;&emsp;&emsp;
+	        <a href="javascript:launchMake()">Make a friend</a> &emsp;&emsp;&emsp;&emsp;
+	        <a href="javascript:launchSee()">See a friend</a>  &emsp;&emsp;&emsp;&emsp; 
+	        <div class="logout">
+	        <a href="http://www.cs.mcgill.ca/~ycukra/PluggedIn/home/">Logout</a></div>
+    </div>
+        
+        <center><h1></br></br></br></br></br>FRIENDS ADDED!</h1></center>
+     <form name="makefriend" action="http://www.cs.mcgill.ca/~shossa15/cgi-bin/makefriends.py" method="get">
+        <input type="hidden" name = "username" value="%s">
+    </form>
+
+    <form name="seefriend" action="http://www.cs.mcgill.ca/~ycukra/cgi-bin/seefriends.cgi" method="get">
+        <input type="hidden" name = "username" value="%s">
+    </form>
+    
+    <form name="statusupdate" action="http://www.cs.mcgill.ca/~ycukra/cgi-bin/status.py" method="get">
+        <input type="hidden" name = "update" value="">
+        <input type="hidden" name = "username" value="%s">
+    </form>
+<script>
+        function launchDash() {
+            document.forms["statusupdate"].submit();
+        }
+
+        function launchMake() {
+            document.forms["makefriend"].submit();
+        }
+
+        function launchSee() {
+            document.forms["seefriend"].submit();
+        }
+    </script>
+
+
+
+</body></html>
