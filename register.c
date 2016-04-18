@@ -102,9 +102,9 @@ int main(void)
   fgets( field, 50, out);
   field[strlen(field) - 1] = '\0'; //removes/n
   
-  char *usrname;i  //this part gets only the first word of the field, which is the username
-  usrname= strtok(field," ");
-  strcpy(field, usrname);
+  char *usrname;  //this part gets only the first word of the field, which is the username
+  usrname=field;
+  strtok(usrname , " " );
   
   while(!feof(out) ) 
   {
@@ -142,7 +142,7 @@ int main(void)
   //if succesfull register, generate link back to login page
   if(unique)
   {
-     FILE *suc=fopen("registerSucess.html", "rt");
+     FILE *suc=fopen("registerSuccess.html", "rt");
      printf("%s%c%c\n","Content-Type:text/html",13,10);
      int c;
       c=fgetc(suc);
