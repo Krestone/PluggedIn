@@ -6,7 +6,7 @@ import sys
 import re
 
 form=cgi.FieldStorage()
-usrname=form.getvalue("username")
+usrname=form.getvalue("username").strip()
 
 htmlTop="""Content-type:text/html\n\n"""
 htmlTop+="""<html>
@@ -27,7 +27,7 @@ htmlTop+="""<html>
     <div class="content">
     	<div class="header"><h1>Connect.</h1> </div>
     	<div class="userlist">
-    		<form name="checkusers" action="http://cs.mcgill.ca/~shossa15/cgi-bin/makefriends.py" method="get"> <!-- action, method--> 
+    		<form name="checkusers" action="http://cs.mcgill.ca/~ycukra/cgi-bin/addfriend.py" method="get"> <!-- action, method--> 
     		<input type="hidden" name="username" value="%s">
 """ % usrname
 try: 
@@ -42,18 +42,40 @@ else:
 allusers=USERS.readlines()
 numusers=len(allusers)/4
 
-usrindex=0 # to keep track of users
+for i in range(0,numusers):
+	if allusers[i*4].split(' ',1)[0].strip() == usrname.strip():
+	# here we are looking for the logged-in user's list of friends
+		alreadyadded=allusers[i*4]
+		# storing that user's list of friends 
+		break
+splitlist=alreadyadded.split(' ')
+
+oldfriends=[]
+
+for friend in splitlist:
+	current = friend.replace('\n','').strip()
+	oldfriends.append(current)
+
+# make sure all whitespaces are gone, as well as newline chars
+
+USERS.close()
+
+index=0 # to keep track of users
 
 for i in range(0,numusers):
 	# get the username
-	currentuser=allusers[usrindex].split(' ', 1)[0]
+	currentuser=allusers[index].split(' ',1)[0].strip(' ')
 	currentuser=currentuser.replace("\n","")
-	usrindex=usrindex+2 # get the full name
-	currentfullname=allusers[usrindex]
+	index=index+2 # move pointer
+	# get the full name
+	currentfullname=allusers[index]
+	index=index+2 # move pointer again 
+	# check if already added
+	if currentuser in oldfriends:
+		continue
 	htmlTop+="""<div class="check"><input type="checkbox" name="%d" value="%s"></div>""" % (i,currentuser)
 	htmlTop+="""<div class="username"><h2>%s</h2></div>""" % currentuser 
 	htmlTop+="""<div class="fullname"><h3>%s</h3></div></br>""" % currentfullname
-	usrindex=usrindex+2 # moving pointer to next user
 	
 htmlTop+= """	
 				<div class="submit"> 
