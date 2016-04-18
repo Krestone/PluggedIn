@@ -13,9 +13,13 @@ friend=form.getvalue("friend")
 f=open("users.txt", "rU")
 line=f.readline()
 
-while (line.startswith(friend) == False):
+while (line.startswith(friend) == False): #get to the line in users.txt where the friends user namee is
   line=f.readline()
 
+f.readline() #this line contains the password
+
+friendName=f.readline()
+friendName=friendName.rstrip()
 jobData=f.readline()
 jobData=jobData.rstrip()
 
@@ -46,7 +50,7 @@ htmlUserInfo="""<div class="content">
     &emsp;&emsp;%s
         </div>
     </div>
-""" % (friend, friend, jobData)    
+""" % (friend, friendName, jobData)    
 htmlForms="""<form name="statusupdate" action="http://www.cs.mcgill.ca/~ycukra/cgi-bin/status.py" method="get">
         <input type="hidden" name = "update" value="">
         <input type="hidden" name = "username" value="%s">
