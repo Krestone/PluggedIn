@@ -101,7 +101,7 @@ int main()
     fclose(htmlTop);
 
    //submit button cgi
-   printf("<form name=\"seeuser\" action=\"http://www.cs.mcgill.ca/~shossa15/cgi-bin/displayuser.py\" method=\"get\">"); 
+   printf("<form name=\"seeuser\" action=\"http://www.cs.mcgill.ca/~ycukra/cgi-bin/friendpage.py\" method=\"get\">"); 
    printf("<input type=\"hidden\" name = \"username\" value=\"%s\">", entries[0]);
    
 
