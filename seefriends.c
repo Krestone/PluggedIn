@@ -2,7 +2,7 @@
 #include <stdlib.h>
 
 char *entries[1];//the username
-char *friends[500];//the friends
+char *friends[5000];//the friends
 int friendNumber=0;//number of friends
 int i=0;
 //takes input an already parsed section, eg username=bob
@@ -54,15 +54,17 @@ int main()
 
   FILE *validate=fopen("users.txt", "rt");
  
-  char field[50];//each line in users.txt
-  fgets( field, 50, validate);
+  char field[5000];//each line in users.txt
+  fgets( field, 5000, validate);
   field[strlen(field) - 1] = '\0'; //removes newline
+  char *usrname;
+  usrname=field;
+  strtok(usrname, " ");
   
   while(!feof(validate) )
   {
-    char *username;
-    username=strtok(field," ");
-    if( strcmp(entries[0], username) == 0) //if user name is found
+    
+    if( strcmp(entries[0], field) == 0) //if user name is found
     {
       char *friend;
       friend = strtok(NULL," "); //get friend
@@ -80,8 +82,10 @@ int main()
     int c1=0;
     for(c1; c1<4; c1++)
     {
-      fgets( field, 50, validate);
+      fgets( field, 5000, validate);
       field[strlen(field) - 1] = '\0';
+      usrname=field;
+      strtok(usrname, " ");
     }
   }
 
