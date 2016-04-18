@@ -12,11 +12,9 @@ friend=form.getvalue("friend")
 
 f=open("users.txt", "rU")
 line=f.readline()
-tempFriend= line.split()[0]
 
-while (tempFriend != friend):
+while (line.startswith(friend) == False):
   line=f.readline()
-  tempFriend=line.split()[0]
 
 jobData=f.readline()
 jobData=jobData.rstrip()
